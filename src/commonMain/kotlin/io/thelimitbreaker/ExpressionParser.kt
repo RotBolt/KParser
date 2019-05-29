@@ -1,6 +1,6 @@
 package io.thelimitbreaker
 
-import kotlin.math.pow
+import kotlin.math.*
 
 class ExpressionParser {
 
@@ -11,10 +11,6 @@ class ExpressionParser {
         DIVISION('/'),
         POWER('^'),
         EXPONENTIAL('E');
-
-        fun signs(): Char {
-            return sign
-        }
     }
 
     private fun String.split(position: Int) =
@@ -25,39 +21,52 @@ class ExpressionParser {
 
     private fun extractNumber(numString: String) = numString.toDoubleOrNull()
 
-    private fun String.lastIndexOf(char: Char):Int{
+    private fun isValue(expression: String): Boolean {
+        val validChars = "1234567890.-"
+
+        for (i in expression.indices) {
+            val char = expression[i]
+            if (char !in validChars) return false
+            if (expression.count { it == '.' } > 1) return false
+            if (char == '-' && i != 0) return false
+        }
+        return true
+    }
+
+    private fun String.lastIndexOf(char: Char): Int {
         var bOpen = 0
         var bClose = 0
-        for (i in this.indices){
+        for (i in this.indices) {
             val currChar = this[i]
 
             when {
-                currChar==char && bOpen == bClose -> return this.length - i -1
+                currChar == char && bOpen == bClose -> return this.length - i - 1
                 currChar == '(' -> bOpen++
                 currChar == ')' -> bClose++
             }
         }
         return -1
     }
+
     private fun isNumber(numString: String) = numString.toDoubleOrNull() != null
 
-    private fun isOperator(operator: Operators,expression: String,position: Int):Boolean{
-        if (operator == Operators.PLUS){
-                if (expression[position-1]=='E'){
-                    if (position>=2){
-                        return false
-                    }
-                }else{
-                    return true
+    private fun isOperator(operator: Operators, expression: String, position: Int): Boolean {
+        if (operator == Operators.PLUS) {
+            if (expression[position - 1] == 'E') {
+                if (position >= 2) {
+                    return false
                 }
-        }else if(operator == Operators.MINUS){
-            if (position==0){
+            } else {
+                return true
+            }
+        } else if (operator == Operators.MINUS) {
+            if (position == 0) {
                 return false
-            }else if (expression[position-1] =='E' && position >=2 ){
+            } else if (expression[position - 1] == 'E' && position >= 2) {
                 return false
-            }else{
-                val prevOperator = expression[position-1]
-                for (legalOp in Operators.values()){
+            } else {
+                val prevOperator = expression[position - 1]
+                for (legalOp in Operators.values()) {
                     if (prevOperator == legalOp.sign)
                         return false
                 }
@@ -67,9 +76,34 @@ class ExpressionParser {
         return true
     }
 
+    private fun evaluateFunction(funString: String, value:Double):Double{
+        return when (funString) {
+            // Trigonometric
+            "SIN", "sin", "Sin" -> sin(value)
+            "COS", "cos", "Cos" -> cos(value)
+            "TAN","tan","Tan" -> tan(value)
+            "ASIN","asin" -> asin(value)
+            "ACOS","acos" -> acos(value)
+            "ATAN","atan" -> atan(value)
+
+            //arithmetic
+            "LOG10","log10","Log10"-> log10(value)
+            "LN","Ln","ln" -> ln(value)
+            "SQRT","sqrt","Sqrt"-> sqrt(value)
+            "EXP","exp","Exp" -> exp(value)
+
+            //hyperbolic
+            "SINH","sinh","Sinh" -> sinh(value)
+            "COSH","cosh","Cosh" -> cosh(value)
+            "TANH","tanh","Tanh" -> tanh(value)
+
+
+            else -> throw ArithmeticException("Function cannot be determined $funString")
+        }
+    }
+
     fun evaluate(expression: String): Double {
         for (operator in Operators.values()) {
-
             /*
                 find the operator from right side (last)
                 for cases : 20/10/2
@@ -77,32 +111,52 @@ class ExpressionParser {
             var position = expression.reversed().lastIndexOf(operator.sign)
 
             println("position of ${operator.sign}: $position")
-            while(position > 0) {
-                if (isOperator(operator,expression,position)) {
+            while (position > 0) {
+                if (isOperator(operator, expression, position)) {
                     val partialExpressions = expression.split(position)
                     val left = partialExpressions[0]
                     val right = partialExpressions[1]
                     println("left $left, right $right")
+
+                    val value0 = evaluate(left)
+                    val value1 = evaluate(right)
+
                     val res = when (operator) {
-                        Operators.PLUS -> evaluate(left) + evaluate(right)
-                        Operators.MINUS -> evaluate(left) - evaluate(right)
-                        Operators.DIVISION -> evaluate(left) / evaluate(right)
-                        Operators.MULTIPLY -> evaluate(left) * evaluate(right)
-                        Operators.POWER -> evaluate(left).pow(evaluate(right))
-                        Operators.EXPONENTIAL -> evaluate(left) * (10.0.pow(evaluate(right)))
+                        Operators.PLUS -> value0 + value1
+                        Operators.MINUS -> value0 - value1
+                        Operators.DIVISION -> {
+                            if (value1 == 0.0)
+                                throw ArithmeticException("Divide By Zero")
+                            value0 / value1
+                        }
+                        Operators.MULTIPLY -> value0 * value1
+                        Operators.POWER -> value0.pow(value1)
+                        Operators.EXPONENTIAL -> value0 * (10.0.pow(value1))
                     }
                     println("res $res")
                     return res
                 }
-                if (position>0){
-                    position = expression.substring(0,position).reversed().lastIndexOf(operator.sign)
+                if (position > 0) {
+                    position = expression.substring(0, position).reversed().lastIndexOf(operator.sign)
                 }
             }
         }
-        if (expression.startsWith('(') && expression.endsWith(')')){
-            return evaluate(expression.substring(1,expression.lastIndex))
+
+        val position = expression.indexOf('(')
+        if (position > 0 && expression.last() == ')'){
+            val funString = expression.substring(0,position)
+            val value = evaluate(expression.substring(position+1,expression.lastIndex))
+            return evaluateFunction(funString, value)
+        }
+        if (expression.startsWith('(') && expression.endsWith(')')) {
+            return evaluate(expression.substring(1, expression.lastIndex))
         }
         println("number formed ${extractNumber(expression)}")
-        return extractNumber(expression) ?: -1.0
+        return when {
+            isValue(expression) -> extractNumber(expression) ?: -1.0
+            expression == "PI" -> PI
+            expression == "E" -> E
+            else -> throw NumberFormatException()
+        }
     }
 }
