@@ -1,0 +1,654 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5ff30dc1-c4f3-4f1d-a859-6b7a6cfde446" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../101/src/Extensions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../101/src/Hello.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../101/src/Lambda.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../101/src/Money.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../101/src/MoneyJava.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/ParseExceptions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/StackNative.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nativeInterop/cinterop/math.def" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kotlin101Demo/src/Extensions.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kotlin101Demo/src/Hello.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kotlin101Demo/src/JavaInterop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kotlin101Demo/src/Lambdas.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kotlin101Demo/src/Money.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TailRec Demo/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TailRec Demo/src/ReverseHello.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Advent-of-Code/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Advent-of-Code/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Advent-of-Code/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Advent-of-Code/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Advent-of-Code/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Advent-of-Code/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Advent-of-Code/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Advent-of-Code/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/.gradle/4.8/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/.gradle/4.8/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/.gradle/4.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/.gradle/4.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Coroutines/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/out/production/classes/HelloCoroutineKt$main$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/out/production/classes/HelloCoroutineKt.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Coroutines/out/production/classes/META-INF/Coroutines_main.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../KotlinJSDemo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../KotlinJSDemo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TailRec Demo/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../TailRec Demo/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/FactiKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/FactiKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/FunctionStackDemoKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/FunctionStackDemoKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/META-INF/TailRec Demo.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/META-INF/TailRec Demo.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/OptiFactiKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/OptiFactiKt.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/QuickSort.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/QuickSort.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/QuickSortIterative.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/QuickSortIterative.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/QuickSortKt.class" beforeDir="false" afterPath="$PROJECT_DIR$/../TailRec Demo/out/production/TailRec Demo/QuickSortKt.class" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/ExpressionParser.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/jvmMain/kotlin/io/thelimitbreaker/ExpressionParserJvm.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.31/958c401b129f64de74af4b11a0894693edfa168d/kotlin-stdlib-common-1.3.31-sources.jar!/kotlin/TextH.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="199">
+              <caret line="292" column="18" selection-start-line="292" selection-start-column="18" selection-end-line="292" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Kotlin File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/jvmMain/kotlin/io/thelimitbreaker/SampleJvm.kt" />
+        <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/Sample.kt" />
+        <option value="$PROJECT_DIR$/src/linuxMain/kotlin/io/thelimitbreaker/SampleLinux.kt" />
+        <option value="$PROJECT_DIR$/src/jsMain/kotlin/io/thelimitbreaker/SampleJs.kt" />
+        <option value="$PROJECT_DIR$/src/nativeInterop/cinterop/stack_stl.def" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/EvaluateHelper.kt" />
+        <option value="$PROJECT_DIR$/src/jsMain/kotlin/io/thelimitbreaker/MathFunctionsJS.kt" />
+        <option value="$PROJECT_DIR$/src/jvmMain/kotlin/io/thelimitbreaker/MathFunctionsJVM.kt" />
+        <option value="$PROJECT_DIR$/src/linuxMain/kotlin/io/thelimitbreaker/MathFunctionsLinux.kt" />
+        <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/MathFunctions.kt" />
+        <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/ParseExceptions.kt" />
+        <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/StackNative.kt" />
+        <option value="$PROJECT_DIR$/src/jsMain/kotlin/io/thelimitbreaker/ExpressionParserJs.kt" />
+        <option value="$PROJECT_DIR$/src/linuxMain/kotlin/io/thelimitbreaker/ExpressionParserLinux.kt" />
+        <option value="$PROJECT_DIR$/src/commonTest/kotlin/io/thelimitbreaker/SampleTests.kt" />
+        <option value="$PROJECT_DIR$/src/jsTest/kotlin/io/thelimitbreaker/SampleTestsJS.kt" />
+        <option value="$PROJECT_DIR$/src/linuxTest/kotlin/io/thelimitbreaker/SampleTestsNative.kt" />
+        <option value="$PROJECT_DIR$/src/jvmTest/kotlin/io/thelimitbreaker/SampleTestsJVM.kt" />
+        <option value="$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/ExpressionParser.kt" />
+        <option value="$PROJECT_DIR$/src/jvmMain/kotlin/io/thelimitbreaker/ExpressionParserJvm.kt" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+        <option value="$PROJECT_DIR$/.idea/modules/io.thelimitbreaker.Kalc.jsMain.iml" />
+        <option value="$PROJECT_DIR$/.idea/modules/io.thelimitbreaker.Kalc.jsTest.iml" />
+        <option value="$PROJECT_DIR$/.idea/modules/io.thelimitbreaker.Kalc.jvmMain.iml" />
+        <option value="$PROJECT_DIR$/.idea/modules/io.thelimitbreaker.Kalc.jvmTest.iml" />
+        <option value="$PROJECT_DIR$/.idea/modules/io.thelimitbreaker.Kalc.linuxMain.iml" />
+        <option value="$PROJECT_DIR$/.idea/modules/io.thelimitbreaker.Kalc.linuxTest.iml" />
+        <option value="$PROJECT_DIR$/.idea/modules/io.thelimitbreaker.Kalc.commonMain.iml" />
+        <option value="$PROJECT_DIR$/.idea/modules/io.thelimitbreaker.Kalc.commonTest.iml" />
+        <option value="$PROJECT_DIR$/.idea/compiler.xml" />
+        <option value="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="68" />
+    <option name="width" value="1226" />
+    <option name="height" value="714" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commonMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commonMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="commonMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="thelimitbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jsMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jsMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jsMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="thelimitbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jsTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jsTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jsTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="thelimitbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jvmMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jvmMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jvmMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="thelimitbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jvmTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jvmTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="jvmTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="thelimitbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="linuxMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="linuxMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="linuxMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="thelimitbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="linuxTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="linuxTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="linuxTest" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="thelimitbreaker" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="nativeInterop" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Kalc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Kalc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="nativeInterop" type="462c0819:PsiDirectoryNode" />
+              <item name="cinterop" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
+      <recent name="io.thelimitbreaker" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="io.thelimitbreaker.ExpressionParserJvmKt" type="JetRunConfigurationType" factoryName="Kotlin" temporary="true" nameIsGenerated="true">
+      <module name="io.thelimitbreaker.Kalc.jvmMain" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="io.thelimitbreaker.ExpressionParserJvmKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Kotlin.io.thelimitbreaker.ExpressionParserJvmKt" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5ff30dc1-c4f3-4f1d-a859-6b7a6cfde446" name="Default Changelist" comment="" />
+      <created>1558862878273</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558862878273</updated>
+      <workItem from="1558862884141" duration="1279000" />
+      <workItem from="1558866214965" duration="12456000" />
+      <workItem from="1559024715687" duration="14592000" />
+      <workItem from="1559104216499" duration="10488000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="38815000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="56" y="0" width="1870" height="1086" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25911602" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32941177" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="FindBugs-IDEA" order="7" />
+      <window_info anchor="bottom" id="Build" order="8" weight="0.3187166" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="CheckStyle" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="13" />
+      <window_info anchor="bottom" id="Version Control" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/settings.gradle">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gradle.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../.gradle/wrapper/dists/gradle-4.10-all/54ye4nru8k2rpf7xwj15he4fo/gradle-4.10/src/core-api/org/gradle/api/Project.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#72872#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/nativeInterop/cinterop/math.def">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="29" selection-start-column="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/EvaluateHelper.kt" />
+    <entry file="file://$PROJECT_DIR$/src/linuxMain/kotlin/io/thelimitbreaker/MathFunctionsLinux.kt" />
+    <entry file="file://$PROJECT_DIR$/src/jvmMain/kotlin/io/thelimitbreaker/MathFunctionsJVM.kt" />
+    <entry file="file://$PROJECT_DIR$/src/jsMain/kotlin/io/thelimitbreaker/MathFunctionsJS.kt" />
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/MathFunctions.kt" />
+    <entry file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-js/1.3.31/3178b8854a9d7bf91b62c368ed0e998c609c3b45/kotlin-stdlib-js-1.3.31-sources.jar!/kotlin/kotlin/js.math.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/ParseExceptions.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="97" selection-start-line="2" selection-start-column="97" selection-end-line="2" selection-end-column="97" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/StackNative.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jsMain/kotlin/io/thelimitbreaker/ExpressionParserJs.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linuxMain/kotlin/io/thelimitbreaker/ExpressionParserLinux.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jsTest/kotlin/io/thelimitbreaker/SampleTestsJS.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonTest/kotlin/io/thelimitbreaker/SampleTests.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/linuxTest/kotlin/io/thelimitbreaker/SampleTestsNative.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvmTest/kotlin/io/thelimitbreaker/SampleTestsJVM.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.31/958c401b129f64de74af4b11a0894693edfa168d/kotlin-stdlib-common-1.3.31-sources.jar!/kotlin/TextH.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="292" column="18" selection-start-line="292" selection-start-column="18" selection-end-line="292" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/commonMain/kotlin/io/thelimitbreaker/ExpressionParser.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/jvmMain/kotlin/io/thelimitbreaker/ExpressionParserJvm.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>linuxMain|Kalc</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8.0_202</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
