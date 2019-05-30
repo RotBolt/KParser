@@ -48,8 +48,6 @@ class ExpressionParser {
         return -1
     }
 
-    private fun isNumber(numString: String) = numString.toDoubleOrNull() != null
-
     private fun isOperator(operator: Operators, expression: String, position: Int): Boolean {
         if (operator == Operators.PLUS) {
             if (expression[position - 1] == 'E') {
@@ -77,6 +75,7 @@ class ExpressionParser {
     }
 
     private fun evaluateFunction(funString: String, value:Double):Double{
+        println("Funstring $funString")
         return when (funString) {
             // Trigonometric
             "SIN", "sin", "Sin" -> sin(value)
@@ -102,7 +101,17 @@ class ExpressionParser {
         }
     }
 
-    fun evaluate(expression: String): Double {
+    private fun roundToPrecision(value:Double,precision: Int = 3):Double{
+        val corrector = 10.0.pow(precision).toInt()
+        return round(value*corrector)/corrector
+    }
+
+    fun evaluateExpression(expression: String, precision:Int = 3):Double{
+        val res = evaluate(expression)
+        return roundToPrecision(res,precision)
+    }
+
+    private fun evaluate(expression: String): Double {
         for (operator in Operators.values()) {
             /*
                 find the operator from right side (last)
@@ -146,7 +155,10 @@ class ExpressionParser {
         if (position > 0 && expression.last() == ')'){
             val funString = expression.substring(0,position)
             val value = evaluate(expression.substring(position+1,expression.lastIndex))
-            return evaluateFunction(funString, value)
+            println("value for func $value")
+            val res = evaluateFunction(funString, value)
+            println("result from func $res")
+            return res
         }
         if (expression.startsWith('(') && expression.endsWith(')')) {
             return evaluate(expression.substring(1, expression.lastIndex))
