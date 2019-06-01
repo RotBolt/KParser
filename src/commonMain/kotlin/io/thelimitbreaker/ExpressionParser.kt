@@ -75,7 +75,6 @@ class ExpressionParser {
     }
 
     private fun evaluateFunction(funString: String, value:Double):Double{
-        println("Funstring $funString")
         return when (funString) {
             // Trigonometric
             "SIN", "sin", "Sin" -> sin(value)
@@ -119,13 +118,11 @@ class ExpressionParser {
             */
             var position = expression.reversed().lastIndexOf(operator.sign)
 
-            println("position of ${operator.sign}: $position")
             while (position > 0) {
                 if (isOperator(operator, expression, position)) {
                     val partialExpressions = expression.split(position)
                     val left = partialExpressions[0]
                     val right = partialExpressions[1]
-                    println("left $left, right $right")
 
                     val value0 = evaluate(left)
                     val value1 = evaluate(right)
@@ -142,7 +139,6 @@ class ExpressionParser {
                         Operators.POWER -> value0.pow(value1)
                         Operators.EXPONENTIAL -> value0 * (10.0.pow(value1))
                     }
-                    println("res $res")
                     return res
                 }
                 if (position > 0) {
@@ -151,19 +147,18 @@ class ExpressionParser {
             }
         }
 
+        // Checking for function in expression
         val position = expression.indexOf('(')
         if (position > 0 && expression.last() == ')'){
             val funString = expression.substring(0,position)
             val value = evaluate(expression.substring(position+1,expression.lastIndex))
-            println("value for func $value")
             val res = evaluateFunction(funString, value)
-            println("result from func $res")
             return res
         }
+
         if (expression.startsWith('(') && expression.endsWith(')')) {
             return evaluate(expression.substring(1, expression.lastIndex))
         }
-        println("number formed ${extractNumber(expression)}")
         return when {
             isValue(expression) -> extractNumber(expression) ?: -1.0
             expression == "PI" -> PI
