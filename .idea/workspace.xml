@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ff30dc1-c4f3-4f1d-a859-6b7a6cfde446" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/kparser/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -9,177 +10,21 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/bin/linux/debugShared/libkparser.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/bin/linux/debugShared/libkparser_api.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/bin/linux/releaseShared/libkparser.so" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/bin/linux/releaseShared/libkparser_api.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/js/main/kparser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/js/main/kparser.meta.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/js/main/kparser/io/thelimitbreaker/kparser/kparser.kjsm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/jvm/main/META-INF/kparser.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/jvm/main/io/thelimitbreaker/kparser/ExpressionParser$Operators.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/jvm/main/io/thelimitbreaker/kparser/ExpressionParser$WhenMappings.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/jvm/main/io/thelimitbreaker/kparser/ExpressionParser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/linux/main/kparser.klib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/metadata/main/META-INF/kparser.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/metadata/main/io/thelimitbreaker/kparser/ExpressionParser.kotlin_metadata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/generated/source/buildConfig/debug/io/thelimitbreaker/kparser/BuildConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/aapt_friendly_merged_manifests/debug/aapt/output.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/generateDebugRFile/R.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/incremental/packageDebugResources/merger.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/library_manifest/debug/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/merged_manifests/debug/output.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/res/symbol-table-with-package/debug/package-aware-r.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/symbols/debug/R.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileDebugKotlinAndroid/build-history.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/bin/linux/debugShared/libkparser.so" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/bin/linux/debugShared/libkparser.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/bin/linux/releaseShared/libkparser.so" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/bin/linux/releaseShared/libkparser.so" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/classes/kotlin/linux/main/kparser.klib" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/classes/kotlin/linux/main/kparser.klib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/generateDebugRFile/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/intermediates/compile_only_not_namespaced_r_class_jar/debug/generateDebugRFile/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileDebugKotlinAndroid/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/kotlin/compileDebugKotlinAndroid/build-history.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileDebugKotlinAndroid/dirty-sources.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/build-history.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/inputs/source-to-output.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/inputs/source-to-output.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/inputs/source-to-output.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/inputs/source-to-output.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/inputs/source-to-output.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/inputs/source-to-output.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/inputs/source-to-output.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/class-fq-name-to-source.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/class-fq-name-to-source.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/class-fq-name-to-source.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/class-fq-name-to-source.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/class-fq-name-to-source.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/class-fq-name-to-source.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/class-fq-name-to-source.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/header.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/source-to-classes.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/source-to-classes.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/source-to-classes.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/source-to-classes.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/source-to-classes.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/source-to-classes.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/source-to-classes.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/subtypes.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/subtypes.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/subtypes.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/subtypes.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/subtypes.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/subtypes.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/subtypes.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/supertypes.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/supertypes.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/supertypes.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/supertypes.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/supertypes.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/supertypes.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/supertypes.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/translation-result.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/translation-result.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/translation-result.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/translation-result.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/translation-result.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/translation-result.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/js/translation-result.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/counters.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/file-to-id.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/file-to-id.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/file-to-id.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/file-to-id.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/file-to-id.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/file-to-id.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/file-to-id.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/id-to-file.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/id-to-file.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/id-to-file.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/id-to-file.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/id-to-file.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/lookups.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/lookups.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/lookups.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/lookups.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/lookups.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/lookups.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/caches-js/lookups/lookups.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/build-history.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/inputs/source-to-output.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/inputs/source-to-output.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/inputs/source-to-output.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/inputs/source-to-output.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/inputs/source-to-output.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/inputs/source-to-output.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/internal-name-to-source.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/internal-name-to-source.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/internal-name-to-source.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/proto.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/proto.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/proto.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/proto.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/proto.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/source-to-classes.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/source-to-classes.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/source-to-classes.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/source-to-classes.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/subtypes.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/subtypes.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/subtypes.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/subtypes.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/subtypes.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/subtypes.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/subtypes.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/supertypes.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/supertypes.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/supertypes.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/supertypes.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/supertypes.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/supertypes.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/jvm/kotlin/supertypes.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/counters.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/file-to-id.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/file-to-id.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/file-to-id.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/file-to-id.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/file-to-id.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/file-to-id.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/id-to-file.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/lookups.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/lookups.tab.keystream" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/lookups.tab.keystream.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/lookups.tab.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/lookups.tab_i" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/caches-jvm/lookups/lookups.tab_i.len" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/last-build.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/libs/kparser-js-0.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/libs/kparser-jvm-0.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/libs/kparser-metadata-0.0.1-sources.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/libs/kparser-metadata-0.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/tmp/jsJar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/tmp/jvmJar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/tmp/metadataJar/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/kparser/build/tmp/metadataSourcesJar/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJs/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/kotlin/compileKotlinJvm/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/libs/kparser-js-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/libs/kparser-js-0.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/libs/kparser-jvm-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/libs/kparser-jvm-0.0.1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/libs/kparser-metadata-0.0.1-sources.jar" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/libs/kparser-metadata-0.0.1-sources.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/kparser/build/libs/kparser-metadata-0.0.1.jar" beforeDir="false" afterPath="$PROJECT_DIR$/kparser/build/libs/kparser-metadata-0.0.1.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -280,7 +125,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/kparser/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -383,6 +232,7 @@
         <option value="$PROJECT_DIR$/kparser/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/kparser/build.gradle" />
+        <option value="$PROJECT_DIR$/kparser/.gitignore" />
       </list>
     </option>
   </component>
@@ -407,17 +257,6 @@
             <path>
               <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
               <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="gradle" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -429,61 +268,29 @@
               <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
               <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kparser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
               <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kparser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="androidMain" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="libs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
               <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kparser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="androidMain" type="462c0819:PsiDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="outputs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
               <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="kparser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="commonMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kparser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="commonMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kparser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="commonMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-              <item name="kparser" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kparser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="jsMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KParser" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KParser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kparser" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="jsMain" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="kotlin" type="462c0819:PsiDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="outputs" type="462c0819:PsiDirectoryNode" />
+              <item name="aar" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -674,18 +481,17 @@
       <workItem from="1559484330453" duration="168000" />
       <workItem from="1559484518490" duration="244000" />
       <workItem from="1559484789064" duration="1023000" />
-      <workItem from="1559494327507" duration="542000" />
+      <workItem from="1559494327507" duration="867000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70791000" />
+    <option name="totallyTimeSpent" value="71116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="56" y="0" width="1870" height="1086" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28863135" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28863135" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -696,14 +502,14 @@
       <window_info id="Captures" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32978722" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49889624" visible="true" weight="0.3287234" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49889624" weight="0.3287234" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="FindBugs-IDEA" order="7" sideWeight="0.49944812" weight="0.32978722" />
       <window_info anchor="bottom" id="Build" order="8" sideWeight="0.49889624" weight="0.3180851" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49724063" weight="0.3269639" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49724063" visible="true" weight="0.32659575" />
       <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="CheckStyle" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5027594" side_tool="true" weight="0.32765958" />
@@ -890,7 +696,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/kparser/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
