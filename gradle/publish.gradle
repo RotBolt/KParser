@@ -1,0 +1,54 @@
+def pomConfig = {
+    licenses {
+        license {
+            name "The Apache Software License, Version 2.0"
+            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            distribution "repo"
+        }
+    }
+    developers {
+        developer {
+            id "thelimitbreaker.io.thelimitbreaker.thelimitbreaker.kparser"
+            name "Rohan Maity"
+        }
+    }
+    scm {
+        url "https://github.com/theLimitBreaker/KParser"
+    }
+}
+
+bintray {
+    def keyProps = new Properties()
+    def keyFile = file("/home/thelimitbreaker.io.thelimitbreaker.thelimitbreaker.kparser/KParser/keys.properties")
+    if (keyFile.exists()) keyFile.withInputStream { keyProps.load(it) }
+
+    user = 'thelimitbreaker.io.thelimitbreaker.thelimitbreaker.kparser'
+    key = '19c982e451be9a678b06ced87611f6215ed87f02'
+
+    pkg {
+        userOrg = 'thelimitbreaker.io.thelimitbreaker.thelimitbreaker.kparser'
+        repo = 'generic'
+        name = "KParser"
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/theLimitBreaker/KParser'
+        version{
+            name = '0.0.1'
+        }
+    }
+}
+
+afterEvaluate {
+    project.publishing.publications.forEach { publication ->
+        publication.pom.withXml {
+            def root = asNode()
+            root.appendNode('name', project.name)
+            root.appendNode('description', 'Multi-Platform Arithmatic Parser for JVM/Android, Linux, Windows and Web')
+            root.appendNode('url', 'https://github.com/theLimitBreaker/KParser')
+            root.children().last() + pomConfig
+        }
+    }
+}
+
+bintrayUpload.doFirst {
+    publications = project.publishing.publications
+}
