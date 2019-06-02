@@ -1,4 +1,0 @@
-#Sun Jun 02 23:57:42 IST 2019
-base.0=/home/thelimitbreaker/KParser/KParser/build/intermediates/dex/debugAndroidTest/mergeDexDebugAndroidTest/out
-path.0=classes.dex
-renamed.0=classes.dex

@@ -1,7 +1,0 @@
-#Internal package file, do not edit.
-#Sun Jun 02 23:57:43 IST 2019
-0.baseType=DIRECTORY
-0.base=/home/thelimitbreaker/KParser/KParser/build/intermediates/dex/debugAndroidTest/mergeDexDebugAndroidTest/out
-0.path=classes.dex
-0.set=DEX
-count=1
