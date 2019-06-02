@@ -8,7 +8,7 @@ def pomConfig = {
     }
     developers {
         developer {
-            id "thelimitbreaker.io.thelimitbreaker.thelimitbreaker.kparser"
+            id "theLimitBreaker"
             name "Rohan Maity"
         }
     }
@@ -19,16 +19,16 @@ def pomConfig = {
 
 bintray {
     def keyProps = new Properties()
-    def keyFile = file("/home/thelimitbreaker.io.thelimitbreaker.thelimitbreaker.kparser/KParser/keys.properties")
+    def keyFile = file("../keys.properties")
     if (keyFile.exists()) keyFile.withInputStream { keyProps.load(it) }
 
-    user = 'thelimitbreaker.io.thelimitbreaker.thelimitbreaker.kparser'
-    key = '19c982e451be9a678b06ced87611f6215ed87f02'
+    user = keyProps.getProperty("bintrayUser")
+    key = keyProps.getProperty("bintrayKey")
 
     pkg {
-        userOrg = 'thelimitbreaker.io.thelimitbreaker.thelimitbreaker.kparser'
-        repo = 'generic'
-        name = "KParser"
+        userOrg = 'thelimitbreaker'
+        repo = 'KParser'
+        name = 'KParser'
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/theLimitBreaker/KParser'
         version{

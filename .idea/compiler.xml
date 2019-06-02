@@ -8,8 +8,8 @@
       <module name="io.kparser.kparser.jvmTest" target="1.6" />
       <module name="io.thelimitbreaker.Kalc.jvmMain" target="1.6" />
       <module name="io.thelimitbreaker.Kalc.jvmTest" target="1.6" />
-      <module name="io.thelimitbreaker.KParser.jvmMain" target="1.6" />
-      <module name="io.thelimitbreaker.KParser.jvmTest" target="1.6" />
+      <module name="io.thelimitbreaker.kparser.jvmMain" target="1.6" />
+      <module name="io.thelimitbreaker.kparser.jvmTest" target="1.6" />
       <module name="io.thelimitbreaker.kparser.kparser.jvmMain" target="1.6" />
       <module name="io.thelimitbreaker.kparser.kparser.jvmTest" target="1.6" />
       <module name="KParser.main" target="1.8" />
