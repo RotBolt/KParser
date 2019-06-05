@@ -5,3 +5,6 @@ matrix:
     jdk: oraclejdk8
     script:
     - ./gradlew build
+    env:
+      global:
+      - ANDROID_SDK_ROOT = '/home/travis/build/theLimitBreaker/KParser/local.properties'
