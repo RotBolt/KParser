@@ -1,7 +1,11 @@
 matrix:
   include:
-  - os: linux
-    language: java
-    jdk: oraclejdk8
-    script:
-    - ./gradlew build
+    - language: java
+      os: linux
+      jdk: oraclejdk8
+      script:
+      - ./gradlew build
+
+    - language: android
+      os: linux
+      jdk: oraclejdk8
