@@ -7,4 +7,4 @@ matrix:
       - ./gradlew build
       env:
         global:
-          ANDROID_SDK_ROOT=$HOME/android/sdk
+          ANDROID_SDK_ROOT=/usr/local/android-sdk
