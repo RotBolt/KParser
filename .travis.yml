@@ -5,7 +5,3 @@ matrix:
       jdk: oraclejdk8
       script:
       - ./gradlew build
-
-    - language: android
-      os: linux
-      jdk: oraclejdk8
