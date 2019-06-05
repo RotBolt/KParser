@@ -32,7 +32,7 @@ bintray {
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/theLimitBreaker/KParser'
         version{
-            name = '0.0.1'
+            name = '0.0.2'
         }
     }
 }
