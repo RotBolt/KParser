@@ -1,10 +1,8 @@
 matrix:
   include:
-    - language: java
+    - language: android
       os: linux
       jdk: oraclejdk8
       script:
       - ./gradlew build
-      env:
-        global:
-          ANDROID_SDK_ROOT=/usr/local/android-sdk
+
