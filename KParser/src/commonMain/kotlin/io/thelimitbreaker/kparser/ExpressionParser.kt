@@ -96,7 +96,8 @@ class ExpressionParser {
             "TANH","tanh","Tanh" -> tanh(value)
 
 
-            else -> throw ArithmeticException("Function cannot be determined $funString")
+            else -> throw
+                ArithmeticException("Function cannot be determined $funString")
         }
     }
 
@@ -142,7 +143,8 @@ class ExpressionParser {
                     return res
                 }
                 if (position > 0) {
-                    position = expression.substring(0, position).reversed().lastIndexOf(operator.sign)
+                    position =
+                        expression.substring(0, position).reversed().lastIndexOf(operator.sign)
                 }
             }
         }
@@ -160,9 +162,9 @@ class ExpressionParser {
             return evaluate(expression.substring(1, expression.lastIndex))
         }
         return when {
-            isValue(expression) -> extractNumber(expression) ?: -1.0
+            isValue(expression) -> extractNumber(expression) ?: Double.MIN_VALUE
             expression == "PI" -> PI
-            expression == "E" -> E
+            expression == "E" ||expression == "e" -> E
             else -> throw NumberFormatException()
         }
     }

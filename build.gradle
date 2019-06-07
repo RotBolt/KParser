@@ -16,7 +16,7 @@ buildscript {
 
 subprojects {
     group 'io.thelimitbreaker'
-    version '0.0.2'
+    version '0.0.4'
 
     repositories {
         google()

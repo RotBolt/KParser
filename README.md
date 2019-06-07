@@ -6,6 +6,25 @@ Arithmetic Expression Parser Koltin Multi-Platform Library
 [ ![Download](https://api.bintray.com/packages/thelimitbreaker/KParser/KParser/images/download.svg) ](https://bintray.com/thelimitbreaker/KParser/KParser/_latestVersion)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
+### Features
+
+- Handle Multiple Operators
+    - Minus (-)
+    - Plus (+)
+    - Multiply (*)
+    - Division (/)
+    - Power (^)
+    - Exponential (E)
+- Mathematical Functions
+    - Trigonometric (Sin, Cos, Tan, asin,acos,atan)
+    - Hyperbolic (Sinh, Cosh, Tanh)
+    - Log10, 
+    - ln (Natural log)
+    - sqrt(Square root)
+- Mathematical Constants
+    - PI
+    - e
+    
 #### Sample 
 
 **JVM/Android**

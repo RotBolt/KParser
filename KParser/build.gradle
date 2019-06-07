@@ -11,7 +11,7 @@ apply from: rootProject.file('gradle/publish.gradle')
 kotlin {
 
     android{
-
+        publishLibraryVariants("release", "debug")
     }
     jvm()
     js()
@@ -82,4 +82,8 @@ kotlin {
 android{
     compileSdkVersion 28
 }
+
+
+
+
 
