@@ -15,7 +15,7 @@ buildscript {
 }
 
 subprojects {
-    group 'io.thelimitbreaker'
+    group 'io.kaen.dagger'
     version '0.0.4'
 
     repositories {

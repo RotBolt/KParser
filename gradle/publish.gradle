@@ -8,12 +8,12 @@ def pomConfig = {
     }
     developers {
         developer {
-            id "theLimitBreaker"
+            id "KaenDagger"
             name "Rohan Maity"
         }
     }
     scm {
-        url "https://github.com/theLimitBreaker/KParser"
+        url "https://github.com/KaenDagger/KParser"
     }
 }
 
@@ -26,11 +26,11 @@ bintray {
     key = keyProps.getProperty("bintrayKey")
 
     pkg {
-        userOrg = 'thelimitbreaker'
+        userOrg = 'kaendagger'
         repo = 'KParser'
         name = 'KParser'
         licenses = ['Apache-2.0']
-        vcsUrl = 'https://github.com/theLimitBreaker/KParser'
+        vcsUrl = 'https://github.com/KaenDagger/KParser'
         version{
             name = '0.0.4'
         }
@@ -43,7 +43,7 @@ afterEvaluate {
             def root = asNode()
             root.appendNode('name', project.name)
             root.appendNode('description', 'Multi-Platform Arithmatic Parser for JVM/Android, Linux, Windows and Web')
-            root.appendNode('url', 'https://github.com/theLimitBreaker/KParser')
+            root.appendNode('url', 'https://github.com/KaenDagger/KParser')
             root.children().last() + pomConfig
         }
     }

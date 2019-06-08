@@ -3,7 +3,7 @@
 Arithmetic Expression Parser Koltin Multi-Platform Library
 
 [![Build Status](https://travis-ci.com/theLimitBreaker/KParser.svg?branch=master)](https://travis-ci.com/theLimitBreaker/KParser)
-[ ![Download](https://api.bintray.com/packages/thelimitbreaker/KParser/KParser/images/download.svg) ](https://bintray.com/thelimitbreaker/KParser/KParser/_latestVersion)
+[ ![Download](https://api.bintray.com/packages/kaendagger/KParser/KParser/images/download.svg) ](https://bintray.com/kaendagger/KParser/KParser/_latestVersion)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 ### Features
