@@ -1,14 +1,9 @@
 *.iml
 .gradle
 /local.properties
-/.idea/artifacts
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
+.idea
 .DS_Store
 /build
 /captures
 .externalNativeBuild
-/.idea/caches/build_file_checksums.ser
-/.idea/runConfigurations.xml
 /keys.properties
