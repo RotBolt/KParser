@@ -11,7 +11,7 @@ apply from: rootProject.file('gradle/publish.gradle')
 kotlin {
 
     android{
-        publishLibraryVariants("release", "debug")
+        
     }
     jvm()
     js()
@@ -70,12 +70,7 @@ kotlin {
                 implementation kotlin('stdlib-jdk8')
             }
         }
-        androidTest{
-            dependencies {
-                implementation kotlin('test')
-                implementation kotlin('test-junit')
-            }
-        }
+       
     }
 }
 
