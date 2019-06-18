@@ -4,168 +4,294 @@ import kotlin.math.*
 
 class ExpressionParser {
 
-    private enum class Operators(val sign: Char) {
-        MINUS('-'),
-        PLUS('+'),
-        MULTIPLY('*'),
-        DIVISION('/'),
-        POWER('^'),
-        EXPONENTIAL('E');
+    private val numStack = Stack<Double>()
+    private val opStack = Stack<String>()
+
+    private var logEnabled = false
+
+    private fun enableLog(status: Boolean) {
+        logEnabled = status
     }
 
-    private fun String.split(position: Int) =
-        listOf(
-            this.substring(0, position),
-            this.substring(position + 1, this.length)
-        )
-
-    private fun extractNumber(numString: String) = numString.toDoubleOrNull()
-
-    private fun isValue(expression: String): Boolean {
-        val validChars = "1234567890.-"
-
-        for (i in expression.indices) {
-            val char = expression[i]
-            if (char !in validChars) return false
-            if (expression.count { it == '.' } > 1) return false
-            if (char == '-' && i != 0) return false
-        }
-        return true
+    fun evaluate(expression: String, precision: Int = 3): Double {
+        val res = evaluateExpression(expression)
+        return roundToPrecision(res, precision)
     }
 
-    private fun String.lastIndexOf(char: Char): Int {
-        var bOpen = 0
-        var bClose = 0
-        for (i in this.indices) {
-            val currChar = this[i]
-
-            when {
-                currChar == char && bOpen == bClose -> return this.length - i - 1
-                currChar == '(' -> bOpen++
-                currChar == ')' -> bClose++
-            }
-        }
-        return -1
-    }
-
-    private fun isOperator(operator: Operators, expression: String, position: Int): Boolean {
-        if (operator == Operators.PLUS) {
-            if (expression[position - 1] == 'E') {
-                if (position >= 2) {
-                    return false
-                }
-            } else {
-                return true
-            }
-        } else if (operator == Operators.MINUS) {
-            if (position == 0) {
-                return false
-            } else if (expression[position - 1] == 'E' && position >= 2) {
-                return false
-            } else {
-                val prevOperator = expression[position - 1]
-                for (legalOp in Operators.values()) {
-                    if (prevOperator == legalOp.sign)
-                        return false
-                }
-                return true
-            }
-        }
-        return true
-    }
-
-    private fun evaluateFunction(funString: String, value:Double):Double{
-        return when (funString) {
-            // Trigonometric
-            "SIN", "sin", "Sin" -> sin(value)
-            "COS", "cos", "Cos" -> cos(value)
-            "TAN","tan","Tan" -> tan(value)
-            "ASIN","asin" -> asin(value)
-            "ACOS","acos" -> acos(value)
-            "ATAN","atan" -> atan(value)
-
-            //arithmetic
-            "LOG10","log10","Log10"-> log10(value)
-            "LN","Ln","ln" -> ln(value)
-            "SQRT","sqrt","Sqrt"-> sqrt(value)
-            "EXP","exp","Exp" -> exp(value)
-
-            //hyperbolic
-            "SINH","sinh","Sinh" -> sinh(value)
-            "COSH","cosh","Cosh" -> cosh(value)
-            "TANH","tanh","Tanh" -> tanh(value)
-
-
-            else -> throw
-                ArithmeticException("Function cannot be determined $funString")
-        }
-    }
-
-    private fun roundToPrecision(value:Double,precision: Int = 3):Double{
+    private fun roundToPrecision(value: Double, precision: Int = 3): Double {
         val corrector = 10.0.pow(precision).toInt()
-        return round(value*corrector)/corrector
+        return round(value * corrector) / corrector
     }
 
-    fun evaluateExpression(expression: String, precision:Int = 3):Double{
-        val res = evaluate(expression)
-        return roundToPrecision(res,precision)
+    private fun computeBinaryOperation(op: String) {
+        try {
+            val num0 = numStack.pop()
+            val num1 = numStack.pop()
+
+            when (op) {
+                BinaryOperators.PLUS.sign -> numStack.push(num1 + num0)
+                BinaryOperators.MINUS.sign -> numStack.push(num1 - num0)
+                BinaryOperators.MULTIPLY.sign -> numStack.push(num1 * num0)
+                BinaryOperators.DIVISION.sign -> numStack.push(num1 / num0)
+                BinaryOperators.POWER.sign -> numStack.push(num1.pow(num0))
+                BinaryOperators.EXPONENTIAL.sign -> numStack.push(num1 * (10.0.pow(num0)))
+            }
+        } catch (es: IndexOutOfBoundsException) {
+            throw Exception("Invalid Syntax")
+        } catch (ae: ArithmeticException) {
+            // division by zero
+            throw Exception("Division by zero not possible")
+        }
     }
 
-    private fun evaluate(expression: String): Double {
-        for (operator in Operators.values()) {
-            /*
-                find the operator from right side (last)
-                for cases : 20/10/2
-            */
-            var position = expression.reversed().lastIndexOf(operator.sign)
+    private fun evaluateExpression(expression: String): Double {
+        var i = 0;
+        var isNegative = false
+        val numString = StringBuilder()
+        while (i < expression.length) {
+            val currChar = expression[i]
 
-            while (position > 0) {
-                if (isOperator(operator, expression, position)) {
-                    val partialExpressions = expression.split(position)
-                    val left = partialExpressions[0]
-                    val right = partialExpressions[1]
-
-                    val value0 = evaluate(left)
-                    val value1 = evaluate(right)
-
-                    val res = when (operator) {
-                        Operators.PLUS -> value0 + value1
-                        Operators.MINUS -> value0 - value1
-                        Operators.DIVISION -> {
-                            if (value1 == 0.0)
-                                throw ArithmeticException("Divide By Zero")
-                            value0 / value1
-                        }
-                        Operators.MULTIPLY -> value0 * value1
-                        Operators.POWER -> value0.pow(value1)
-                        Operators.EXPONENTIAL -> value0 * (10.0.pow(value1))
-                    }
-                    return res
+            if (currChar in "0123456789.") {
+                if (i != 0 && expression[i - 1] == ')') {
+                    performSafePushToStack(numString, "*", isNegative)
                 }
-                if (position > 0) {
-                    position =
-                        expression.substring(0, position).reversed().lastIndexOf(operator.sign)
+                numString.append(currChar)
+                i++
+
+            } else if (currChar.toString() isIn BinaryOperators.values() || currChar == '(') {
+
+                if (currChar == '(') {
+                    performSafePushToStack(numString, "*", isNegative)
+                    opStack.push("(")
+                } else {
+                    performSafePushToStack(numString, currChar.toString(), isNegative)
+                }
+
+                // check for unary minus for case of negative number in partial right expression
+                if (currChar.toString() == BinaryOperators.MINUS.sign) {
+                    isNegative = when (i) {
+                        0 -> true
+                        else -> {
+                            val prevChar = expression[i - 1]
+                            prevChar in "+*/^E("
+                        }
+                    }
+                }
+                i++
+            } else if (currChar == ')') {
+                computeBracket(numString, isNegative)
+                i++
+            } else if (currChar == '!') {
+                performFactorial(numString, isNegative)
+                i++
+            } else if (currChar == '%') {
+                performPercentage(numString, isNegative)
+                i++
+            } else if (expression.substring(i, i + 2) == "PI") {
+                numStack.push(PI)
+                i += 2
+            } else if (expression[i] == 'e') {
+                numStack.push(E)
+                i++
+            } else {
+                val increament = pushFunctionalOperator(expression, numString, isNegative, i)
+                i += increament
+            }
+        }
+
+        if (numString.isNotEmpty()) {
+            var number = numString.toString().toDouble()
+            if (isNegative) {
+                number = 0 - number
+            }
+            numStack.push(number)
+            numString.clear()
+        }
+        while (!opStack.isEmpty()) {
+            val op = opStack.pop()
+            computeBinaryOperation(op)
+        }
+        if (logEnabled) {
+            opStack.display()
+            numStack.display()
+        }
+        return numStack.pop()
+    }
+
+
+    private fun pushFunctionalOperator(
+        expression: String,
+        numString: StringBuilder,
+        isNegative: Boolean,
+        index: Int
+    ): Int {
+        for (func in FunctionalOperators.values()) {
+            val funLength = func.func.length
+            if (expression.substring(index, index + funLength) == func.func) {
+                if (index != 0 && expression[index - 1] == ')') {
+                    performSafePushToStack(numString, "*", isNegative)
+                }
+                if (func != FunctionalOperators.logx) {
+                    opStack.push(func.func)
+                    return funLength
+                } else {
+                    val logRegex = Regex("log[123456789.]+\\(")
+                    val found = logRegex.find(expression.substring(index, expression.length))
+                    val logxString = found!!.value
+                    opStack.push(logxString)
+                    return logxString.length
                 }
             }
         }
 
-        // Checking for function in expression
-        val position = expression.indexOf('(')
-        if (position > 0 && expression.last() == ')'){
-            val funString = expression.substring(0,position)
-            val value = evaluate(expression.substring(position+1,expression.lastIndex))
-            val res = evaluateFunction(funString, value)
-            return res
-        }
+        throw Exception("Unsupported Operation at ${expression.substring(index, expression.length)}")
+    }
 
-        if (expression.startsWith('(') && expression.endsWith(')')) {
-            return evaluate(expression.substring(1, expression.lastIndex))
-        }
-        return when {
-            isValue(expression) -> extractNumber(expression) ?: Double.MIN_VALUE
-            expression == "PI" -> PI
-            expression == "E" ||expression == "e" -> E
-            else -> throw NumberFormatException()
+    private fun performSafePushToStack(
+        numString: StringBuilder,
+        currOp: String,
+        isNegative: Boolean
+    ) {
+        if (numString.isNotEmpty()) {
+            var number = numString.toString().toDouble()
+            if (isNegative) {
+                number = 0 - number
+            }
+            numStack.push(number)
+            numString.clear()
+
+            if (opStack.isEmpty()) {
+                opStack.push(currOp)
+            } else {
+                var prevOpPrecedence = getBinaryOperatorPrecedence(opStack.peek())
+                val currOpPrecedence = getBinaryOperatorPrecedence(currOp)
+                if (currOpPrecedence > prevOpPrecedence) {
+                    opStack.push(currOp)
+                } else {
+                    while (currOpPrecedence <= prevOpPrecedence) {
+                        val op = opStack.pop()
+                        computeBinaryOperation(op)
+                        if (!opStack.isEmpty())
+                            prevOpPrecedence = getBinaryOperatorPrecedence(opStack.peek())
+                        else
+                            break
+                    }
+                    opStack.push(currOp)
+                }
+            }
+        } else if (!numStack.isEmpty()) {
+            opStack.push(currOp)
         }
     }
+
+    private fun getBinaryOperatorPrecedence(currOp: String): Int {
+        return when (currOp) {
+            BinaryOperators.PLUS.sign -> BinaryOperators.PLUS.precedence
+            BinaryOperators.MINUS.sign -> BinaryOperators.MINUS.precedence
+            BinaryOperators.MULTIPLY.sign -> BinaryOperators.MULTIPLY.precedence
+            BinaryOperators.DIVISION.sign -> BinaryOperators.DIVISION.precedence
+            BinaryOperators.POWER.sign -> BinaryOperators.POWER.precedence
+            BinaryOperators.EXPONENTIAL.sign -> BinaryOperators.EXPONENTIAL.precedence
+            else -> -1
+        }
+    }
+
+    private fun computeBracket(numString: StringBuilder, isNegative: Boolean) {
+        if (numString.isNotEmpty()) {
+            var number = numString.toString().toDouble()
+            if (isNegative) {
+                number = 0 - number
+            }
+            numStack.push(number)
+            numString.clear()
+        }
+        var operator = opStack.pop()
+        while (operator != "(" && !(operator isIn FunctionalOperators.values())
+        ) {
+            computeBinaryOperation(operator)
+            operator = opStack.pop()
+        }
+        if (operator isIn FunctionalOperators.values()) {
+            computeFunction(operator)
+        }
+    }
+
+    private fun computeFunction(func: String) {
+        val num = numStack.pop()
+        when (func) {
+            FunctionalOperators.sin.func -> numStack.push(sin(num))
+            FunctionalOperators.cos.func -> numStack.push(cos(num))
+            FunctionalOperators.tan.func -> numStack.push(tan(num))
+            FunctionalOperators.asin.func -> numStack.push(asin(num))
+            FunctionalOperators.acos.func -> numStack.push(acos(num))
+            FunctionalOperators.atan.func -> numStack.push(atan(num))
+            FunctionalOperators.sinh.func -> numStack.push(sinh(num))
+            FunctionalOperators.cosh.func -> numStack.push(cosh(num))
+            FunctionalOperators.tanh.func -> numStack.push(tanh(num))
+            FunctionalOperators.sqrt.func -> numStack.push(sqrt(num))
+            FunctionalOperators.exp.func -> numStack.push(exp(num))
+            FunctionalOperators.ln.func -> numStack.push(ln(num))
+            FunctionalOperators.log2.func -> numStack.push(log2(num))
+            FunctionalOperators.log10.func -> numStack.push(log10(num))
+            else -> {
+                if (func.contains(FunctionalOperators.logx.func)) {
+                    val base = func.substring(3, func.lastIndex).toDouble()
+                    numStack.push(log(num, base))
+                }
+            }
+        }
+    }
+
+    private fun performFactorial(numString: StringBuilder, isNegative: Boolean) {
+        if (numString.isNotEmpty()) {
+            val number = numString.toString().toDouble()
+            numString.clear()
+            if (number.isInt()) {
+                var result = factorial(number.toInt())
+                if (isNegative) {
+                    result = 0 - result
+                }
+                numStack.push(result.toDouble())
+            } else {
+                throw Exception("Domain Error")
+            }
+        } else if (!numStack.isEmpty()) {
+            val number = numStack.pop()
+            if (number.isInt()) {
+                var result = factorial(number.absoluteValue.toInt())
+                if (number < 0) {
+                    result = 0 - result
+                }
+                numStack.push(result.toDouble())
+            } else {
+                throw Exception("Domain Error")
+            }
+        }
+    }
+
+
+    private fun performPercentage(numString: StringBuilder, isNegative: Boolean) {
+        if (numString.isNotEmpty()) {
+            var number = numString.toString().toDouble()
+            if (isNegative) {
+                number = 0 - number
+            }
+            numString.clear()
+            val result = number / 100
+            numStack.push(result)
+
+        } else if (!numStack.isEmpty()) {
+            val number = numStack.pop()
+            val result = number / 100.0
+            numStack.push(result)
+        }
+    }
+
+    private fun Double.isInt() = this == floor(this)
+
+    private fun factorial(num: Int, output: Int = 1): Int {
+        return if (num == 0) output
+        else factorial(num - 1, output * num)
+    }
+
 }

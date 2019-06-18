@@ -1,4 +1,4 @@
-package io.thelimibreaker.kalcandroid
+package io.kaendagger.kalcandroid
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

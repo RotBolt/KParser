@@ -1,4 +1,4 @@
-package io.thelimibreaker.kalcandroid
+package io.kaendagger.kalcandroid
 
 import org.junit.Test
 

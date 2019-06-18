@@ -19,9 +19,7 @@ allprojects {
     repositories {
         google()
         jcenter()
-        maven {
-            url  "https://dl.bintray.com/thelimitbreaker/KParser"
-        }
+        maven { url "https://dl.bintray.com/kaendagger/KParser" }
     }
 }
 
