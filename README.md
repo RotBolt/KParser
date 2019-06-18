@@ -20,7 +20,11 @@ Arithmetic Expression Parser Koltin Multi-Platform Library
     - Hyperbolic (Sinh, Cosh, Tanh)
     - Log10, 
     - ln (Natural log)
+    - Log2()
+    - LogX() (where X = base)
     - sqrt(Square root)
+    - ! (Factorial)
+    - % (Percentage)
 - Mathematical Constants
     - PI
     - e
@@ -30,7 +34,7 @@ Arithmetic Expression Parser Koltin Multi-Platform Library
 **JVM/Android**
 ```
 val parser = ExpressionParser()
-val result = parser.evaluateExpression("sin(PI)+1+cos(PI)")
+val result = parser.evaluate("sin(PI)+1+cos(PI)")
 println(result)
         
 // result 0.0
@@ -53,7 +57,7 @@ int main() {
     libkparser_ExportedSymbols* lib = libkparser_symbols();
     libkparser_kref_io_thelimitbreaker_ExpressionParser kparser = libkparser_kref_io_thelimitbreaker_ExpressionParser();
 
-    double  result = lib->kotlin.root.io.thelimitbreaker.ExpressionParser.evaluateExpression(kparser,"1+sin(PI)+cos(PI)",3);
+    double  result = lib->kotlin.root.io.thelimitbreaker.ExpressionParser.evaluate(kparser,"1+sin(PI)+cos(PI)",3);
     std::cout<<result << std::endl;
     return 0;
 }
@@ -78,13 +82,13 @@ target_link_libraries(${PROJECT_NAME} kparser)
  // In root build.gradle
  repositories {
         maven {
-            url  "https://dl.bintray.com/thelimitbreaker/KParser"
+            url  "https://dl.bintray.com/kaendagger/KParser"
         }
   }
   
   //Add in the dependencies
   dependencies{
-         implementation 'io.thelimitbreaker:KParser-jvm:0.0.1'
+         implementation 'io.kaen.dagger:KParser-jvm:0.0.5'
   }
     
 ```
