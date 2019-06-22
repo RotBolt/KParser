@@ -7,26 +7,60 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import io.kaendagger.kalcandroid.R
+import kotlinx.android.synthetic.main.layout_funcpad.view.*
+import kotlinx.android.synthetic.main.layout_keypad.*
+import kotlinx.android.synthetic.main.layout_keypad.view.*
 
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class FuncpadFragment : Fragment(), View.OnClickListener {
 
-/**
- * A simple [Fragment] subclass.
- *
- */
-class FuncpadFragment : Fragment() {
+    lateinit var onCalcBtnClickListener: OnCalcBtnClickListener
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_funcpad, container, false)
+        val view = inflater.inflate(R.layout.fragment_funcpad, container, false)
+
+        val funcBtns = arrayOf(
+            view.btnExp, view.btnPercent, view.btnFact, view.btnSqrt,
+            view.btnSin, view.btnCos, view.btnTan,
+            view.btnSinh, view.btnCosh, view.btnTanh,
+            view.btnAsin, view.btnAcos, view.btnAtan,
+            view.btnLogx, view.btnLog10, view.btnLn,
+            view.btnE, view.btnPI, view.btnEqf
+        )
+        for (btn in funcBtns) {
+            btn.setOnClickListener(this@FuncpadFragment)
+        }
+        return view
+
     }
 
-
+    override fun onClick(v: View) {
+        with(onCalcBtnClickListener) {
+            when (v.id) {
+                R.id.btnEq -> onCalcBtnClick("exp(")
+                R.id.btnPercent -> onCalcBtnClick("%")
+                R.id.btnFact -> onCalcBtnClick("!")
+                R.id.btnSqrt -> onCalcBtnClick("sqrt(")
+                R.id.btnSin -> onCalcBtnClick("sin(")
+                R.id.btnCos -> onCalcBtnClick("cos(")
+                R.id.btnTan -> onCalcBtnClick("tan(")
+                R.id.btnLogx -> onCalcBtnClick("logx(")
+                R.id.btnAsin -> onCalcBtnClick("asin(")
+                R.id.btnAcos -> onCalcBtnClick("acos(")
+                R.id.btnAtan -> onCalcBtnClick("atan(")
+                R.id.btnLog10 -> onCalcBtnClick("log10(")
+                R.id.btnSinh -> onCalcBtnClick("sinh(")
+                R.id.btnCosh -> onCalcBtnClick("cosh(")
+                R.id.btnTanh -> onCalcBtnClick("tanh(")
+                R.id.btnLn -> onCalcBtnClick("ln(")
+                R.id.btnE -> onCalcBtnClick("e")
+                R.id.btnPI -> onCalcBtnClick("PI")
+                R.id.btnEqf -> onCalcBtnClick("=")
+            }
+        }
+    }
 }

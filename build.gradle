@@ -16,7 +16,7 @@ buildscript {
 
 subprojects {
     group 'io.kaen.dagger'
-    version '0.0.5'
+    version '0.0.7'
 
     repositories {
         google()

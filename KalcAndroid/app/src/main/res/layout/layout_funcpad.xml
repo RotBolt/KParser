@@ -200,6 +200,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <Button
+        android:id="@+id/btnEqf"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

@@ -46,5 +46,9 @@ infix fun <T> String.isIn(operators: Array<T>): Boolean {
     return false
 }
 
+infix fun <T> String.notIn(operators: Array<T>): Boolean {
+    return !(this isIn operators)
+}
+
 
 

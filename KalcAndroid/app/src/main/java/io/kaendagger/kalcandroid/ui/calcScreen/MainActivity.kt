@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
 import android.widget.HorizontalScrollView
+import io.kaen.dagger.BadSyntaxException
+import io.kaen.dagger.DomainException
 import io.kaen.dagger.ExpressionParser
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private val expressionHolder = StringBuilder()
     private var lastAppendedData = ""
-    private val textSizesSP = arrayOf(70.0f, 60.0f, 50.0f,40.0f)
+    private val textSizesSP = arrayOf(70.0f, 60.0f, 50.0f, 40.0f)
     private var currentTextSizeSP = textSizesSP[0]
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +44,7 @@ class MainActivity : AppCompatActivity() {
             })
 
         keypadPager.apply {
+            offscreenPageLimit = 2
             adapter = calcPadPagerAdaper
             setPageTransformer(true, ZoomOutPageTransformer())
         }
@@ -62,7 +65,6 @@ class MainActivity : AppCompatActivity() {
     private fun adjustExpressionDisplay() {
         val scrollViewWidth = displayScrollView.width
         val tvDisplayWidth = tvDisplay.width
-        Log.i("PUI", "dWidth $tvDisplayWidth, scrollWidth $scrollViewWidth")
         if (tvDisplayWidth > scrollViewWidth) {
             adjustTextSize()
             tvDisplay.setTextSize(TypedValue.COMPLEX_UNIT_SP, currentTextSizeSP)
@@ -79,11 +81,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun showResult(){
-        val expressionParser = ExpressionParser()
-        val result = expressionParser.evaluateExpression(expressionHolder.toString())
+    private fun showResult() {
+        val expressionParser = ExpressionParser().also { it.enableLog(true) }
+        val result = try {
+            expressionParser.evaluate(expressionHolder.toString())
+        } catch (bs: BadSyntaxException) {
+            "Bad Syntax"
+        } catch (de: DomainException) {
+            "Domain Error"
+        }
         tvResult.text = result.toString()
     }
+
     private fun smoothScrollToEnd() {
         GlobalScope.launch {
             delay(100)

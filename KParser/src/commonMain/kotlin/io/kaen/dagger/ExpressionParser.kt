@@ -9,7 +9,7 @@ class ExpressionParser {
 
     private var logEnabled = false
 
-    private fun enableLog(status: Boolean) {
+    fun enableLog(status: Boolean) {
         logEnabled = status
     }
 
@@ -37,7 +37,7 @@ class ExpressionParser {
                 BinaryOperators.EXPONENTIAL.sign -> numStack.push(num1 * (10.0.pow(num0)))
             }
         } catch (es: IndexOutOfBoundsException) {
-            throw Exception("Invalid Syntax")
+            throw BadSyntaxException()
         } catch (ae: ArithmeticException) {
             // division by zero
             throw Exception("Division by zero not possible")
@@ -61,7 +61,9 @@ class ExpressionParser {
             } else if (currChar.toString() isIn BinaryOperators.values() || currChar == '(') {
 
                 if (currChar == '(') {
-                    performSafePushToStack(numString, "*", isNegative)
+                    if (i != 0 && expression[i - 1].toString() notIn BinaryOperators.values()) {
+                        performSafePushToStack(numString, "*", isNegative)
+                    }
                     opStack.push("(")
                 } else {
                     performSafePushToStack(numString, currChar.toString(), isNegative)
@@ -94,8 +96,11 @@ class ExpressionParser {
                 numStack.push(E)
                 i++
             } else {
-                val increament = pushFunctionalOperator(expression, numString, isNegative, i)
-                i += increament
+                if (i != 0 && expression[i - 1].toString() notIn BinaryOperators.values()) {
+                    performSafePushToStack(numString, "*", isNegative)
+                }
+                val increment = pushFunctionalOperator(expression, numString, isNegative, i)
+                i += increment
             }
         }
 
@@ -115,7 +120,11 @@ class ExpressionParser {
             opStack.display()
             numStack.display()
         }
-        return numStack.pop()
+        return try {
+            numStack.pop()
+        } catch (ie: IndexOutOfBoundsException) {
+            throw BadSyntaxException()
+        }
     }
 
 
@@ -253,7 +262,7 @@ class ExpressionParser {
                 }
                 numStack.push(result.toDouble())
             } else {
-                throw Exception("Domain Error")
+                throw DomainException()
             }
         } else if (!numStack.isEmpty()) {
             val number = numStack.pop()
@@ -264,7 +273,7 @@ class ExpressionParser {
                 }
                 numStack.push(result.toDouble())
             } else {
-                throw Exception("Domain Error")
+                throw DomainException()
             }
         }
     }
