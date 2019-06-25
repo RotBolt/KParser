@@ -2,7 +2,6 @@ package io.kaendagger.kalcandroid.ui.calcScreen
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
 import android.widget.HorizontalScrollView
 import io.kaen.dagger.BadSyntaxException
@@ -29,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
 //        setUpTvDisplay()
-        tvDisplay.setTextSize(TypedValue.COMPLEX_UNIT_SP, currentTextSizeSP)
+        etDisplay.setTextSize(TypedValue.COMPLEX_UNIT_SP, currentTextSizeSP)
         val calcPadPagerAdaper = CalcpadPagerAdaper(
             supportFragmentManager,
             object : OnCalcBtnClickListener {
@@ -53,21 +52,21 @@ class MainActivity : AppCompatActivity() {
     private fun singleCharClearAction() {
         val removeIndex = expressionHolder.length - lastAppendedData.length
         expressionHolder.delete(removeIndex, expressionHolder.length)
-        tvDisplay.text = expressionHolder.toString()
+        etDisplay.text = expressionHolder.toString()
     }
 
     private fun displayExpression(extraData: String) {
         expressionHolder.append(extraData)
         lastAppendedData = extraData
-        tvDisplay.text = expressionHolder.toString()
+        etDisplay.text = expressionHolder.toString()
     }
 
     private fun adjustExpressionDisplay() {
         val scrollViewWidth = displayScrollView.width
-        val tvDisplayWidth = tvDisplay.width
+        val tvDisplayWidth = etDisplay.width
         if (tvDisplayWidth > scrollViewWidth) {
             adjustTextSize()
-            tvDisplay.setTextSize(TypedValue.COMPLEX_UNIT_SP, currentTextSizeSP)
+            etDisplay.setTextSize(TypedValue.COMPLEX_UNIT_SP, currentTextSizeSP)
         }
         smoothScrollToEnd()
     }

@@ -19,7 +19,7 @@
             android:scrollbars="horizontal"
             android:layout_gravity="end"
             android:paddingStart="@dimen/pad_normal"
-            android:id="@+id/tvDisplay"
+            android:id="@+id/etDisplay"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:maxLines="1"

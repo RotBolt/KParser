@@ -92,4 +92,25 @@ class ExpressionParserTests {
         assertEquals(1-0.06,result)
     }
 
+    @Test
+    fun simpleUnaryFunction(){
+        val result = expressionParser.evaluate("-cos(PI)")
+        assertEquals(-cos(PI),result)
+    }
+
+    @Test
+    fun complexUnaryCase(){
+        val result = expressionParser.evaluate("2*-(-cos(PI))")
+        assertEquals(-2.0,result)
+    }
+
+    @Test
+    fun evalInDegrees(){
+        expressionParser.isDegrees = true
+        val result = expressionParser.evaluate("sin(90)")
+        assertEquals(1.0,result)
+        val result2 = expressionParser.evaluate("sin(30)")
+        assertEquals(0.5,result2)
+    }
+
 }

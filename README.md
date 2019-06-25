@@ -8,6 +8,8 @@ Arithmetic Expression Parser Koltin Multi-Platform Library
 
 ### Features
 
+- Evaluated in Degrees and Radians
+
 - Handle Multiple Operators
     - Minus (-)
     - Plus (+)
@@ -88,7 +90,7 @@ target_link_libraries(${PROJECT_NAME} kparser)
   
   //Add in the dependencies
   dependencies{
-         implementation 'io.kaen.dagger:KParser-jvm:0.0.5'
+         implementation 'io.kaen.dagger:KParser-jvm:0.1.1'
   }
     
 ```

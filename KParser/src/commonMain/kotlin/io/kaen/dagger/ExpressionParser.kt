@@ -4,37 +4,97 @@ import kotlin.math.*
 
 class ExpressionParser {
 
+
+    // push negative operators
+    // make isNegative Class member
+
     private val numStack = Stack<Double>()
     private val opStack = Stack<String>()
 
+    var isDegrees = false
     private var logEnabled = false
+
 
     fun enableLog(status: Boolean) {
         logEnabled = status
     }
 
     fun evaluate(expression: String, precision: Int = 3): Double {
-        val res = evaluateExpression(expression)
+        val uExpression = convertToUExpression(expression)
+        val res = evaluateExpression(uExpression)
         return roundToPrecision(res, precision)
+    }
+
+    private fun convertToUExpression(expression: String): String {
+        val sb = StringBuilder()
+        for (i in expression.indices) {
+            val currChar = expression[i]
+            if (currChar.toString() == NormalOperators.MINUS.sign) {
+                if (i == 0) {
+                    sb.append('u')
+                } else {
+                    val prevChar = expression[i - 1]
+                    if (prevChar in "+*/^E(") {
+                        sb.append('u')
+                    } else {
+                        sb.append(currChar)
+                    }
+                }
+            } else {
+                sb.append(currChar)
+            }
+        }
+        return sb.toString()
     }
 
     private fun roundToPrecision(value: Double, precision: Int = 3): Double {
         val corrector = 10.0.pow(precision).toInt()
-        return round(value * corrector) / corrector
+        var result = round(value * corrector) / corrector
+        if (result == -0.0) {
+            result = 0.0
+        }
+        return result
     }
 
-    private fun computeBinaryOperation(op: String) {
+
+    private fun computeNormalOperation(op: String) {
         try {
-            val num0 = numStack.pop()
-            val num1 = numStack.pop()
 
             when (op) {
-                BinaryOperators.PLUS.sign -> numStack.push(num1 + num0)
-                BinaryOperators.MINUS.sign -> numStack.push(num1 - num0)
-                BinaryOperators.MULTIPLY.sign -> numStack.push(num1 * num0)
-                BinaryOperators.DIVISION.sign -> numStack.push(num1 / num0)
-                BinaryOperators.POWER.sign -> numStack.push(num1.pow(num0))
-                BinaryOperators.EXPONENTIAL.sign -> numStack.push(num1 * (10.0.pow(num0)))
+                NormalOperators.PLUS.sign -> {
+                    val num0 = numStack.pop()
+                    val num1 = numStack.pop()
+                    numStack.push(num1 + num0)
+                }
+                NormalOperators.MINUS.sign -> {
+                    val num0 = numStack.pop()
+                    val num1 = numStack.pop()
+                    numStack.push(num1 - num0)
+                }
+                NormalOperators.MULTIPLY.sign -> {
+                    val num0 = numStack.pop()
+                    val num1 = numStack.pop()
+                    numStack.push(num1 * num0)
+                }
+                NormalOperators.DIVISION.sign -> {
+                    val num0 = numStack.pop()
+                    val num1 = numStack.pop()
+                    numStack.push(num1 / num0)
+                }
+                NormalOperators.POWER.sign -> {
+                    val num0 = numStack.pop()
+                    val num1 = numStack.pop()
+                    numStack.push(num1.pow(num0))
+                }
+                NormalOperators.EXPONENTIAL.sign -> {
+                    val num0 = numStack.pop()
+                    val num1 = numStack.pop()
+                    numStack.push(num1 * (10.0.pow(num0)))
+                }
+                NormalOperators.UNARY.sign -> {
+                    val num0 = numStack.pop()
+                    numStack.push(-1.0 * num0)
+                }
             }
         } catch (es: IndexOutOfBoundsException) {
             throw BadSyntaxException()
@@ -46,48 +106,37 @@ class ExpressionParser {
 
     private fun evaluateExpression(expression: String): Double {
         var i = 0;
-        var isNegative = false
         val numString = StringBuilder()
         while (i < expression.length) {
             val currChar = expression[i]
 
             if (currChar in "0123456789.") {
                 if (i != 0 && expression[i - 1] == ')') {
-                    performSafePushToStack(numString, "*", isNegative)
+                    performSafePushToStack(numString, "*")
                 }
                 numString.append(currChar)
                 i++
 
-            } else if (currChar.toString() isIn BinaryOperators.values() || currChar == '(') {
+            } else if (currChar.toString() isIn NormalOperators.values() || currChar == '(') {
 
                 if (currChar == '(') {
-                    if (i != 0 && expression[i - 1].toString() notIn BinaryOperators.values()) {
-                        performSafePushToStack(numString, "*", isNegative)
+                    if (i != 0 && expression[i - 1].toString() notIn NormalOperators.values()) {
+                        performSafePushToStack(numString, "*")
                     }
                     opStack.push("(")
                 } else {
-                    performSafePushToStack(numString, currChar.toString(), isNegative)
+                    performSafePushToStack(numString, currChar.toString())
                 }
 
-                // check for unary minus for case of negative number in partial right expression
-                if (currChar.toString() == BinaryOperators.MINUS.sign) {
-                    isNegative = when (i) {
-                        0 -> true
-                        else -> {
-                            val prevChar = expression[i - 1]
-                            prevChar in "+*/^E("
-                        }
-                    }
-                }
                 i++
             } else if (currChar == ')') {
-                computeBracket(numString, isNegative)
+                computeBracket(numString)
                 i++
             } else if (currChar == '!') {
-                performFactorial(numString, isNegative)
+                performFactorial(numString)
                 i++
             } else if (currChar == '%') {
-                performPercentage(numString, isNegative)
+                performPercentage(numString)
                 i++
             } else if (expression.substring(i, i + 2) == "PI") {
                 numStack.push(PI)
@@ -96,25 +145,22 @@ class ExpressionParser {
                 numStack.push(E)
                 i++
             } else {
-                if (i != 0 && expression[i - 1].toString() notIn BinaryOperators.values()) {
-                    performSafePushToStack(numString, "*", isNegative)
+                if (i != 0 && expression[i - 1].toString() notIn NormalOperators.values()) {
+                    performSafePushToStack(numString, "*")
                 }
-                val increment = pushFunctionalOperator(expression, numString, isNegative, i)
+                val increment = pushFunctionalOperator(expression, i)
                 i += increment
             }
         }
 
         if (numString.isNotEmpty()) {
             var number = numString.toString().toDouble()
-            if (isNegative) {
-                number = 0 - number
-            }
             numStack.push(number)
             numString.clear()
         }
         while (!opStack.isEmpty()) {
             val op = opStack.pop()
-            computeBinaryOperation(op)
+            computeNormalOperation(op)
         }
         if (logEnabled) {
             opStack.display()
@@ -130,16 +176,11 @@ class ExpressionParser {
 
     private fun pushFunctionalOperator(
         expression: String,
-        numString: StringBuilder,
-        isNegative: Boolean,
         index: Int
     ): Int {
         for (func in FunctionalOperators.values()) {
             val funLength = func.func.length
             if (expression.substring(index, index + funLength) == func.func) {
-                if (index != 0 && expression[index - 1] == ')') {
-                    performSafePushToStack(numString, "*", isNegative)
-                }
                 if (func != FunctionalOperators.logx) {
                     opStack.push(func.func)
                     return funLength
@@ -158,14 +199,10 @@ class ExpressionParser {
 
     private fun performSafePushToStack(
         numString: StringBuilder,
-        currOp: String,
-        isNegative: Boolean
+        currOp: String
     ) {
         if (numString.isNotEmpty()) {
-            var number = numString.toString().toDouble()
-            if (isNegative) {
-                number = 0 - number
-            }
+            val number = numString.toString().toDouble()
             numStack.push(number)
             numString.clear()
 
@@ -179,7 +216,7 @@ class ExpressionParser {
                 } else {
                     while (currOpPrecedence <= prevOpPrecedence) {
                         val op = opStack.pop()
-                        computeBinaryOperation(op)
+                        computeNormalOperation(op)
                         if (!opStack.isEmpty())
                             prevOpPrecedence = getBinaryOperatorPrecedence(opStack.peek())
                         else
@@ -188,36 +225,33 @@ class ExpressionParser {
                     opStack.push(currOp)
                 }
             }
-        } else if (!numStack.isEmpty()) {
+        } else if (!numStack.isEmpty() || currOp == NormalOperators.UNARY.sign) {
             opStack.push(currOp)
         }
     }
 
     private fun getBinaryOperatorPrecedence(currOp: String): Int {
         return when (currOp) {
-            BinaryOperators.PLUS.sign -> BinaryOperators.PLUS.precedence
-            BinaryOperators.MINUS.sign -> BinaryOperators.MINUS.precedence
-            BinaryOperators.MULTIPLY.sign -> BinaryOperators.MULTIPLY.precedence
-            BinaryOperators.DIVISION.sign -> BinaryOperators.DIVISION.precedence
-            BinaryOperators.POWER.sign -> BinaryOperators.POWER.precedence
-            BinaryOperators.EXPONENTIAL.sign -> BinaryOperators.EXPONENTIAL.precedence
+            NormalOperators.PLUS.sign -> NormalOperators.PLUS.precedence
+            NormalOperators.MINUS.sign -> NormalOperators.MINUS.precedence
+            NormalOperators.MULTIPLY.sign -> NormalOperators.MULTIPLY.precedence
+            NormalOperators.DIVISION.sign -> NormalOperators.DIVISION.precedence
+            NormalOperators.POWER.sign -> NormalOperators.POWER.precedence
+            NormalOperators.EXPONENTIAL.sign -> NormalOperators.EXPONENTIAL.precedence
+            NormalOperators.UNARY.sign -> NormalOperators.UNARY.precedence
             else -> -1
         }
     }
 
-    private fun computeBracket(numString: StringBuilder, isNegative: Boolean) {
+    private fun computeBracket(numString: StringBuilder) {
         if (numString.isNotEmpty()) {
-            var number = numString.toString().toDouble()
-            if (isNegative) {
-                number = 0 - number
-            }
+            val number = numString.toString().toDouble()
             numStack.push(number)
             numString.clear()
         }
         var operator = opStack.pop()
-        while (operator != "(" && !(operator isIn FunctionalOperators.values())
-        ) {
-            computeBinaryOperation(operator)
+        while (operator != "(" && operator notIn FunctionalOperators.values()) {
+            computeNormalOperation(operator)
             operator = opStack.pop()
         }
         if (operator isIn FunctionalOperators.values()) {
@@ -226,7 +260,10 @@ class ExpressionParser {
     }
 
     private fun computeFunction(func: String) {
-        val num = numStack.pop()
+        var num = numStack.pop()
+        if (isDegrees){
+            num = (num *PI)/ 180
+        }
         when (func) {
             FunctionalOperators.sin.func -> numStack.push(sin(num))
             FunctionalOperators.cos.func -> numStack.push(cos(num))
@@ -251,15 +288,12 @@ class ExpressionParser {
         }
     }
 
-    private fun performFactorial(numString: StringBuilder, isNegative: Boolean) {
+    private fun performFactorial(numString: StringBuilder) {
         if (numString.isNotEmpty()) {
             val number = numString.toString().toDouble()
             numString.clear()
             if (number.isInt()) {
-                var result = factorial(number.toInt())
-                if (isNegative) {
-                    result = 0 - result
-                }
+                val result = factorial(number.toInt())
                 numStack.push(result.toDouble())
             } else {
                 throw DomainException()
@@ -279,12 +313,9 @@ class ExpressionParser {
     }
 
 
-    private fun performPercentage(numString: StringBuilder, isNegative: Boolean) {
+    private fun performPercentage(numString: StringBuilder) {
         if (numString.isNotEmpty()) {
-            var number = numString.toString().toDouble()
-            if (isNegative) {
-                number = 0 - number
-            }
+            val number = numString.toString().toDouble()
             numString.clear()
             val result = number / 100
             numStack.push(result)
