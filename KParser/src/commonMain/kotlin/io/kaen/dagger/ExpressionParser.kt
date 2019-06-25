@@ -274,7 +274,12 @@ class ExpressionParser {
             FunctionalOperators.sinh.func -> numStack.push(sinh(num))
             FunctionalOperators.cosh.func -> numStack.push(cosh(num))
             FunctionalOperators.tanh.func -> numStack.push(tanh(num))
-            FunctionalOperators.sqrt.func -> numStack.push(sqrt(num))
+            FunctionalOperators.sqrt.func ->{
+                if (num<0){
+                    throw ImaginaryException()
+                }
+                numStack.push(sqrt(num))
+            }
             FunctionalOperators.exp.func -> numStack.push(exp(num))
             FunctionalOperators.ln.func -> numStack.push(ln(num))
             FunctionalOperators.log2.func -> numStack.push(log2(num))
