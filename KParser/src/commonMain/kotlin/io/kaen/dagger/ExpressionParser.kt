@@ -391,6 +391,7 @@ class ExpressionParser {
                 throw DomainException()
             }
         }
+        clearStacks()
         throw DomainException()
     }
 
@@ -407,6 +408,7 @@ class ExpressionParser {
             val result = number / 100.0
             numStack.push(result)
         }
+        clearStacks()
         throw BadSyntaxException()
     }
 

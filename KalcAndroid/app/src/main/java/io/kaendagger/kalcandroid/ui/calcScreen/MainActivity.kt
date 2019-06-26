@@ -142,7 +142,7 @@ class MainActivity : AppCompatActivity(), CoroutineScope {
         } catch (de: DomainException) {
             if (toShow) "Domain Error" else ""
         } catch (ie: ImaginaryException) {
-            if (toShow) "Complex Operation not supported" else ""
+            if (toShow) "Complex number" else ""
         } catch (bnf: BaseNotFoundException) {
             if (toShow) "Invalid log statement" else ""
         } catch (e: Exception) {
