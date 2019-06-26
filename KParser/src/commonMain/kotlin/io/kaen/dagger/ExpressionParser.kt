@@ -92,9 +92,11 @@ class ExpressionParser {
                 }
             }
         } catch (es: IndexOutOfBoundsException) {
+            clearStacks()
             throw BadSyntaxException()
         } catch (ae: ArithmeticException) {
             // division by zero
+            clearStacks()
             throw Exception("Division by zero not possible")
         }
     }
@@ -157,6 +159,7 @@ class ExpressionParser {
         while (!opStack.isEmpty()) {
             val op = opStack.pop()
             if(op isIn FunctionalOperators.values()){
+                clearStacks()
                 throw BadSyntaxException()
             }
             computeNormalOperation(op)
@@ -168,6 +171,7 @@ class ExpressionParser {
         return try {
             numStack.pop()
         } catch (ie: IndexOutOfBoundsException) {
+            clearStacks()
             throw BadSyntaxException()
         }
     }
@@ -195,6 +199,7 @@ class ExpressionParser {
             }
         }
 
+        clearStacks()
         throw Exception("Unsupported Operation at ${expression.substring(index, expression.length)}")
     }
 
@@ -278,6 +283,7 @@ class ExpressionParser {
             FunctionalOperators.tanh.func -> numStack.push(tanh(num))
             FunctionalOperators.sqrt.func -> {
                 if (num < 0) {
+                    clearStacks()
                     throw ImaginaryException()
                 }
                 numStack.push(sqrt(num))
@@ -303,6 +309,7 @@ class ExpressionParser {
                 val result = factorial(number.toInt())
                 numStack.push(result.toDouble())
             } else {
+                clearStacks()
                 throw DomainException()
             }
         } else if (!numStack.isEmpty()) {
@@ -314,6 +321,7 @@ class ExpressionParser {
                 }
                 numStack.push(result.toDouble())
             } else {
+                clearStacks()
                 throw DomainException()
             }
         }
@@ -335,6 +343,11 @@ class ExpressionParser {
     }
 
     private fun Double.isInt() = this == floor(this)
+
+    private fun clearStacks(){
+        numStack.clear()
+        opStack.clear()
+    }
 
     private fun factorial(num: Int, output: Int = 1): Int {
         return if (num == 0) output

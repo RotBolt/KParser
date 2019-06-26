@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.layout_keypad.*
 class KeypadFragment : Fragment(), View.OnClickListener {
 
     lateinit var onCalcBtnClickListener: OnCalcBtnClickListener
+    lateinit var clrLongClick: () -> Unit
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,14 +34,19 @@ class KeypadFragment : Fragment(), View.OnClickListener {
             btnEq, btnClr, btnBracketOpen, btnBracketClose
         )
 
-        for (btn in basicKeyBtns){
+        for (btn in basicKeyBtns) {
             btn.setOnClickListener(this)
+        }
+
+        btnClr.setOnLongClickListener {
+            clrLongClick()
+            true
         }
     }
 
     override fun onClick(v: View) {
-        with(onCalcBtnClickListener){
-            when(v.id){
+        with(onCalcBtnClickListener) {
+            when (v.id) {
                 R.id.btn0 -> onCalcBtnClick("0")
                 R.id.btn1 -> onCalcBtnClick("1")
                 R.id.btn2 -> onCalcBtnClick("2")

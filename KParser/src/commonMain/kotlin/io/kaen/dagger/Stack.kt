@@ -17,4 +17,9 @@ class Stack<T> {
     fun size() = top + 1
 
     fun display() = println(stack)
+
+    fun clear(){
+        stack.clear()
+        top = -1
+    }
 }

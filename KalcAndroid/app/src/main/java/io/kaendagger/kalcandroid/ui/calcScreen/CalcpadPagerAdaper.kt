@@ -7,12 +7,14 @@ import java.lang.Exception
 
 class CalcpadPagerAdaper(
     fm: FragmentManager,
-    val onCalcBtnClickListener: OnCalcBtnClickListener
+    val onCalcBtnClickListener: OnCalcBtnClickListener,
+    val clrLongClick: () -> Unit
 ) : FragmentStatePagerAdapter(fm) {
     override fun getItem(position: Int): Fragment? = when (position) {
         0 -> {
             KeypadFragment().also {
                 it.onCalcBtnClickListener = onCalcBtnClickListener
+                it.clrLongClick = clrLongClick
             }
         }
         1 -> FuncpadFragment().also {

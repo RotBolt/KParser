@@ -23,9 +23,6 @@ import java.util.Stack
 class MainActivity : AppCompatActivity() {
 
     private val expressionHolder = StringBuilder()
-    private val textSizesSP = arrayOf(70f, 60.0f, 50.0f, 40.0f)
-    private var currentTextSizeSP = textSizesSP[0]
-
     private val clrStack = Stack<String>()
 
     private var inDegrees = false
@@ -37,28 +34,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-//      setUpTvDisplay()
-        tvDisplay.setTextSize(TypedValue.COMPLEX_UNIT_SP, currentTextSizeSP)
-
         setNavDrawer()
         val calcPadPagerAdaper = CalcpadPagerAdaper(
             supportFragmentManager,
             object : OnCalcBtnClickListener {
                 override fun onCalcBtnClick(data: String) {
                     when (data) {
-                        "=" -> showResult()
-                        "C" -> {
-                            clearAction()
-                            adjustExpressionDisplay(true)
-                        }
+                        "=" -> showResult(true)
+                        "C" -> clearAction()
                         else -> {
                             displayExpression(data)
-                            adjustExpressionDisplay(false)
+                            smoothScrollToEnd()
                         }
                     }
-
                 }
-            })
+            }
+        ) {
+            clrStack.clear()
+            tvDisplay.text = ""
+            tvResult.text = ""
+        }
 
         keypadPager.apply {
             offscreenPageLimit = 2
@@ -128,53 +123,22 @@ class MainActivity : AppCompatActivity() {
         expressionHolder.append(extraData)
         clrStack.push(extraData)
         tvDisplay.text = expressionHolder.toString()
+//        showResult(false)
     }
 
-    private fun adjustExpressionDisplay(isClearAction: Boolean) {
-        val scrollViewWidth = displayScrollView.width
-        val tvDisplayWidth = tvDisplay.width
-        Log.i("PUI", "scroll $scrollViewWidth, tvdisplay $tvDisplayWidth")
+    private fun showResult(toShow: Boolean) {
+        Log.i("PUI","exp $expressionHolder")
 
-        if (!isClearAction) {
-            if (tvDisplayWidth > scrollViewWidth)
-                adjustTextSize(false)
-        } else if (isClearAction && tvDisplayWidth < scrollViewWidth) {
-            adjustTextSize(true)
-        }
-        tvDisplay.setTextSize(TypedValue.COMPLEX_UNIT_SP, currentTextSizeSP)
-        smoothScrollToEnd()
-    }
-
-    private fun adjustTextSize(direction: Boolean) {
-
-        currentTextSizeSP = if (!direction) {
-            when (currentTextSizeSP) {
-                textSizesSP[0] -> textSizesSP[1]
-                textSizesSP[1] -> textSizesSP[2]
-                textSizesSP[2] -> textSizesSP[3]
-                else -> textSizesSP[3]
-            }
-        } else {
-            when (currentTextSizeSP) {
-                textSizesSP[3] -> textSizesSP[2]
-                textSizesSP[2] -> textSizesSP[1]
-                textSizesSP[1] -> textSizesSP[0]
-                else -> textSizesSP[0]
-            }
-        }
-    }
-
-    private fun showResult() {
-        Log.i("PUI","expression ${expressionHolder}")
         val result = try {
             expressionParser.evaluate(expressionHolder.toString())
         } catch (bs: BadSyntaxException) {
-            "Bad Syntax"
+            if (toShow) "Bad Syntax" else ""
         } catch (de: DomainException) {
-            "Domain Error"
+            if (toShow) "Domain Error" else ""
         } catch (ie: ImaginaryException) {
-            "Complex Operation not supported"
+            if (toShow) "Complex Operation not supported" else ""
         }
+        Log.i("PUI","res $result")
         tvResult.text = result.toString()
     }
 
