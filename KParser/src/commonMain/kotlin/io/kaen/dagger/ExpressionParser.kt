@@ -156,6 +156,9 @@ class ExpressionParser {
         }
         while (!opStack.isEmpty()) {
             val op = opStack.pop()
+            if(op isIn FunctionalOperators.values()){
+                throw BadSyntaxException()
+            }
             computeNormalOperation(op)
         }
         if (logEnabled) {

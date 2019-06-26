@@ -37,6 +37,7 @@
     </HorizontalScrollView>
 
     <HorizontalScrollView
+        android:layout_marginTop="@dimen/margin_large"
         android:scrollbars="none"
         android:layout_marginStart="@dimen/margin_normal"
         android:layout_width="match_parent"

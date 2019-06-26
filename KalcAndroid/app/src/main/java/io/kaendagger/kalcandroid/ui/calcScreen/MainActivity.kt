@@ -23,7 +23,7 @@ import java.util.Stack
 class MainActivity : AppCompatActivity() {
 
     private val expressionHolder = StringBuilder()
-    private val textSizesSP = arrayOf(70.0f, 60.0f, 50.0f, 40.0f)
+    private val textSizesSP = arrayOf(70f, 60.0f, 50.0f, 40.0f)
     private var currentTextSizeSP = textSizesSP[0]
 
     private val clrStack = Stack<String>()
