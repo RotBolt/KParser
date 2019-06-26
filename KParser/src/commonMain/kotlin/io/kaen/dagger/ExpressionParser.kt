@@ -214,7 +214,6 @@ class ExpressionParser {
                     val found = logRegex.find(expression.substring(index, expression.length))
                     try {
                         val logxString = found!!.value
-                        opStack.push(logxString)
                         return logxString.length
                     }catch (e: NullPointerException){
                         throw BaseNotFoundException()
@@ -372,8 +371,8 @@ class ExpressionParser {
             val number = numString.toString().toDouble()
             numString.clear()
             if (number.isInt()) {
-                val result = factorial(number.toInt())
-                numStack.push(result.toDouble())
+                val result = factorial(number)
+                numStack.push(result)
                 return
             } else {
                 clearStacks()
@@ -382,11 +381,11 @@ class ExpressionParser {
         } else if (!numStack.isEmpty()) {
             val number = numStack.pop()
             if (number.isInt()) {
-                var result = factorial(number.absoluteValue.toInt())
+                var result = factorial(number.absoluteValue)
                 if (number < 0) {
                     result = 0 - result
                 }
-                numStack.push(result.toDouble())
+                numStack.push(result)
                 return
             } else {
                 clearStacks()
@@ -423,8 +422,8 @@ class ExpressionParser {
         opStack.clear()
     }
 
-    private fun factorial(num: Int, output: Int = 1): Int {
-        return if (num == 0) output
+    private fun factorial(num: Double, output: Double = 1.0): Double {
+        return if (num == 0.0) output
         else factorial(num - 1, output * num)
     }
 
