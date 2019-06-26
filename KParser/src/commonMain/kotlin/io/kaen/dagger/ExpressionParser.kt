@@ -288,19 +288,62 @@ class ExpressionParser {
 
     private fun computeFunction(func: String) {
         var num = numStack.pop()
-        if (isDegrees) {
-            num = (num * PI) / 180
-        }
+
         when (func) {
-            FunctionalOperators.sin.func -> numStack.push(sin(num))
-            FunctionalOperators.cos.func -> numStack.push(cos(num))
-            FunctionalOperators.tan.func -> numStack.push(tan(num))
-            FunctionalOperators.asin.func -> numStack.push(asin(num))
-            FunctionalOperators.acos.func -> numStack.push(acos(num))
-            FunctionalOperators.atan.func -> numStack.push(atan(num))
-            FunctionalOperators.sinh.func -> numStack.push(sinh(num))
-            FunctionalOperators.cosh.func -> numStack.push(cosh(num))
-            FunctionalOperators.tanh.func -> numStack.push(tanh(num))
+            FunctionalOperators.sin.func -> {
+                if (isDegrees) {
+                    num = (num * PI) / 180
+                }
+                numStack.push(sin(num))
+            }
+            FunctionalOperators.cos.func -> {
+                if (isDegrees) {
+                    num = (num * PI) / 180
+                }
+                numStack.push(cos(num))
+            }
+            FunctionalOperators.tan.func -> {
+                if (isDegrees) {
+                    num = (num * PI) / 180
+                }
+                numStack.push(tan(num))
+            }
+            FunctionalOperators.asin.func -> {
+                if (isDegrees) {
+                    num = (num * PI) / 180
+                }
+                numStack.push(asin(num))
+            }
+            FunctionalOperators.acos.func -> {
+                if (isDegrees) {
+                    num = (num * PI) / 180
+                }
+                numStack.push(acos(num))
+            }
+            FunctionalOperators.atan.func -> {
+                if (isDegrees) {
+                    num = (num * PI) / 180
+                }
+                numStack.push(atan(num))
+            }
+            FunctionalOperators.sinh.func -> {
+                if (isDegrees) {
+                    num = (num * PI) / 180
+                }
+                numStack.push(sinh(num))
+            }
+            FunctionalOperators.cosh.func -> {
+                if (isDegrees) {
+                    num = (num * PI) / 180
+                }
+                numStack.push(cosh(num))
+            }
+            FunctionalOperators.tanh.func -> {
+                if (isDegrees) {
+                    num = (num * PI) / 180
+                }
+                numStack.push(tanh(num))
+            }
             FunctionalOperators.sqrt.func -> {
                 if (num < 0) {
                     clearStacks()

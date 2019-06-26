@@ -47,7 +47,7 @@ class FuncpadFragment : Fragment(), View.OnClickListener {
                 R.id.btnSin -> onCalcBtnClick("sin(")
                 R.id.btnCos -> onCalcBtnClick("cos(")
                 R.id.btnTan -> onCalcBtnClick("tan(")
-                R.id.btnLogx -> onCalcBtnClick("logx(")
+                R.id.btnLogx -> onCalcBtnClick("log")
                 R.id.btnAsin -> onCalcBtnClick("asin(")
                 R.id.btnAcos -> onCalcBtnClick("acos(")
                 R.id.btnAtan -> onCalcBtnClick("atan(")
