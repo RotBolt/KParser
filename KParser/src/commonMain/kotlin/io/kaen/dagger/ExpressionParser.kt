@@ -107,7 +107,11 @@ class ExpressionParser {
         while (i < expression.length) {
             val currChar = expression[i]
             if (currChar in "0123456789.") {
-                if (i != 0 && expression[i - 1] == ')') {
+                // check for implicit multiply
+                if (i != 0 &&
+                    (expression[i - 1] == ')' || expression[i - 1] == 'e' ||
+                            (i >= 2 && expression.substring(i - 2, i) == "PI"))
+                ) {
                     performSafePushToStack(numString, "*")
                 }
                 numString.append(currChar)
@@ -116,6 +120,7 @@ class ExpressionParser {
             } else if (currChar.toString() isIn NormalOperators.values() || currChar == '(') {
 
                 if (currChar == '(') {
+                    // check for implicit multiply
                     if (i != 0 && expression[i - 1].toString() notIn NormalOperators.values()) {
                         performSafePushToStack(numString, "*")
                     }
@@ -134,13 +139,28 @@ class ExpressionParser {
             } else if (currChar == '%') {
                 performPercentage(numString)
                 i++
-            } else if (expression.substring(i, i + 2) == "PI") {
+            } else if (i + 2 <= expression.length && expression.substring(i, i + 2) == "PI") {
+                // check for implicit multiply
+                if (i != 0 && expression[i - 1].toString() notIn NormalOperators.values()
+                    && expression[i - 1] != '('
+                ) {
+                    performSafePushToStack(numString, "*")
+                }
                 numStack.push(PI)
                 i += 2
-            } else if (expression[i] == 'e' && (i + 1) < expression.length && expression[i + 1] != 'x') {
+            } else if (expression[i] == 'e' &&
+                (i + 1 == expression.length || (i + 1) < expression.length && expression[i + 1] != 'x')
+            ) {
+                // check for implicit multiply
+                if (i != 0 && expression[i - 1].toString() notIn NormalOperators.values()
+                    && expression[i - 1] != '('
+                ) {
+                    performSafePushToStack(numString, "*")
+                }
                 numStack.push(E)
                 i++
             } else {
+                // check for implicit multiply
                 if (i != 0 && expression[i - 1].toString() notIn NormalOperators.values()
                     && expression[i - 1] != '('
                 ) {
@@ -158,7 +178,7 @@ class ExpressionParser {
         }
         while (!opStack.isEmpty()) {
             val op = opStack.pop()
-            if(op isIn FunctionalOperators.values()){
+            if (op isIn FunctionalOperators.values()) {
                 clearStacks()
                 throw BadSyntaxException()
             }
@@ -344,7 +364,7 @@ class ExpressionParser {
 
     private fun Double.isInt() = this == floor(this)
 
-    private fun clearStacks(){
+    private fun clearStacks() {
         numStack.clear()
         opStack.clear()
     }

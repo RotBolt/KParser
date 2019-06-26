@@ -127,4 +127,21 @@ class ExpressionParserTests {
         assertEquals(8.389, result)
     }
 
+    @Test
+    fun ePiTest(){
+        val result = expressionParser.evaluate("ePI")
+        assertEquals(8.54,result)
+
+        val result2 = expressionParser.evaluate("PIe")
+        assertEquals(8.54,result2)
+    }
+
+    @Test
+    fun numPiETest(){
+        val result = expressionParser.evaluate("e8")
+        assertEquals(21.746,result)
+
+        val result2 = expressionParser.evaluate("PI8")
+        assertEquals(25.133,result2)
+    }
 }

@@ -8,20 +8,23 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.HorizontalScrollView
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import io.kaen.dagger.*
 import io.kaendagger.kalcandroid.R
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_main.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
+import java.lang.Exception
 import java.util.Stack
+import kotlin.coroutines.CoroutineContext
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(),CoroutineScope {
 
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main
     private val expressionHolder = StringBuilder()
     private val clrStack = Stack<String>()
 
@@ -41,7 +44,10 @@ class MainActivity : AppCompatActivity() {
                 override fun onCalcBtnClick(data: String) {
                     when (data) {
                         "=" -> showResult(true)
-                        "C" -> clearAction()
+                        "C" -> {
+                            clearAction()
+                            showResult(false)
+                        }
                         else -> {
                             displayExpression(data)
                             smoothScrollToEnd()
@@ -50,9 +56,10 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         ) {
+            expressionHolder.clear()
             clrStack.clear()
-            tvDisplay.text = ""
-            tvResult.text = ""
+            tvDisplay.animClear()
+            tvResult.animClear()
         }
 
         keypadPager.apply {
@@ -114,6 +121,7 @@ class MainActivity : AppCompatActivity() {
                     expressionParser.isDegrees = true
                 }
                 inDegrees = !inDegrees
+                showResult(true)
             }
         }
         return true
@@ -123,12 +131,10 @@ class MainActivity : AppCompatActivity() {
         expressionHolder.append(extraData)
         clrStack.push(extraData)
         tvDisplay.text = expressionHolder.toString()
-//        showResult(false)
+        showResult(false)
     }
 
     private fun showResult(toShow: Boolean) {
-        Log.i("PUI","exp $expressionHolder")
-
         val result = try {
             expressionParser.evaluate(expressionHolder.toString())
         } catch (bs: BadSyntaxException) {
@@ -137,15 +143,33 @@ class MainActivity : AppCompatActivity() {
             if (toShow) "Domain Error" else ""
         } catch (ie: ImaginaryException) {
             if (toShow) "Complex Operation not supported" else ""
+        } catch (e: Exception) {
+            if (toShow) {
+                if (e.message!!.contains("Unsupported Operation")) {
+                    "Unsupported Operation"
+                } else {
+                    throw e
+                }
+            } else {
+                ""
+            }
         }
-        Log.i("PUI","res $result")
         tvResult.text = result.toString()
     }
 
     private fun smoothScrollToEnd() {
-        GlobalScope.launch {
+        launch {
             delay(100)
             displayScrollView.fullScroll(HorizontalScrollView.FOCUS_RIGHT)
+        }
+    }
+
+    private fun TextView.animClear(){
+        launch {
+            this@animClear.animate().alpha(0f).duration = 300
+            delay(300)
+            this@animClear.text = ""
+            this@animClear.animate().alpha(1f)
         }
     }
 
