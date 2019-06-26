@@ -120,4 +120,11 @@ class ExpressionParserTests {
         assertEquals(1.0, result)
     }
 
+    @Test
+    fun funcInFunc() {
+        expressionParser.isDegrees = true
+        val result = expressionParser.evaluate("e^2+exp(cos(90))")
+        assertEquals(8.389, result)
+    }
+
 }

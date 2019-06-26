@@ -55,7 +55,6 @@ class ExpressionParser {
 
     private fun computeNormalOperation(op: String) {
         try {
-
             when (op) {
                 NormalOperators.PLUS.sign -> {
                     val num0 = numStack.pop()
@@ -105,7 +104,6 @@ class ExpressionParser {
         val numString = StringBuilder()
         while (i < expression.length) {
             val currChar = expression[i]
-
             if (currChar in "0123456789.") {
                 if (i != 0 && expression[i - 1] == ')') {
                     performSafePushToStack(numString, "*")
@@ -141,7 +139,9 @@ class ExpressionParser {
                 numStack.push(E)
                 i++
             } else {
-                if (i != 0 && expression[i - 1].toString() notIn NormalOperators.values()) {
+                if (i != 0 && expression[i - 1].toString() notIn NormalOperators.values()
+                    && expression[i - 1] != '('
+                ) {
                     performSafePushToStack(numString, "*")
                 }
                 val increment = pushFunctionalOperator(expression, i)
@@ -226,6 +226,7 @@ class ExpressionParser {
         } else if (!numStack.isEmpty() || currOp == NormalOperators.UNARY.sign) {
             opStack.push(currOp)
         }
+
     }
 
     private fun getBinaryOperatorPrecedence(currOp: String): Int {
