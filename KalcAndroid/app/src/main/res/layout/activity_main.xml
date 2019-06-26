@@ -1,51 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="bottom"
+    android:id="@+id/drawer"
     android:background="@color/colorPrimary"
-    tools:context=".ui.calcScreen.MainActivity">
+    tools:openDrawer="left"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <HorizontalScrollView
-        android:layout_marginTop="@dimen/margin_top_space"
-        android:id="@+id/displayScrollView"
-        android:scrollbars="none"
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/mainContainer"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:scrollbars="horizontal"
-            android:layout_gravity="end"
-            android:paddingStart="@dimen/pad_normal"
-            android:id="@+id/etDisplay"
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:maxLines="1"
-            android:gravity="bottom"
-            android:scrollHorizontally="true"
-            android:textColor="@android:color/white" />
-    </HorizontalScrollView>
+        android:layout_height="match_parent">
+        <include layout="@layout/layout_main"  />
+    </LinearLayout>
 
-    <HorizontalScrollView
-        android:scrollbars="none"
-        android:layout_marginStart="@dimen/margin_normal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:layout_gravity="end"
-            android:id="@+id/tvResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="98"
-            android:textSize="40sp"
-            android:textColor="@android:color/white" />
-    </HorizontalScrollView>
+    <LinearLayout
+        android:layout_gravity="left"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+        <include layout="@layout/layout_history"/>
+    </LinearLayout>
 
-   <androidx.viewpager.widget.ViewPager
-       android:id="@+id/keypadPager"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content">
-   </androidx.viewpager.widget.ViewPager>
-</LinearLayout>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

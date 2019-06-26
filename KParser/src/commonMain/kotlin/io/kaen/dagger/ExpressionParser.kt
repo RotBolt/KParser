@@ -4,10 +4,6 @@ import kotlin.math.*
 
 class ExpressionParser {
 
-
-    // push negative operators
-    // make isNegative Class member
-
     private val numStack = Stack<Double>()
     private val opStack = Stack<String>()
 
@@ -141,7 +137,7 @@ class ExpressionParser {
             } else if (expression.substring(i, i + 2) == "PI") {
                 numStack.push(PI)
                 i += 2
-            } else if (expression[i] == 'e') {
+            } else if (expression[i] == 'e' && (i + 1) < expression.length && expression[i + 1] != 'x') {
                 numStack.push(E)
                 i++
             } else {
@@ -154,7 +150,7 @@ class ExpressionParser {
         }
 
         if (numString.isNotEmpty()) {
-            var number = numString.toString().toDouble()
+            val number = numString.toString().toDouble()
             numStack.push(number)
             numString.clear()
         }
@@ -180,7 +176,9 @@ class ExpressionParser {
     ): Int {
         for (func in FunctionalOperators.values()) {
             val funLength = func.func.length
-            if (expression.substring(index, index + funLength) == func.func) {
+            if ((index + funLength < expression.length) &&
+                expression.substring(index, index + funLength) == func.func
+            ) {
                 if (func != FunctionalOperators.logx) {
                     opStack.push(func.func)
                     return funLength
@@ -261,8 +259,8 @@ class ExpressionParser {
 
     private fun computeFunction(func: String) {
         var num = numStack.pop()
-        if (isDegrees){
-            num = (num *PI)/ 180
+        if (isDegrees) {
+            num = (num * PI) / 180
         }
         when (func) {
             FunctionalOperators.sin.func -> numStack.push(sin(num))
@@ -274,8 +272,8 @@ class ExpressionParser {
             FunctionalOperators.sinh.func -> numStack.push(sinh(num))
             FunctionalOperators.cosh.func -> numStack.push(cosh(num))
             FunctionalOperators.tanh.func -> numStack.push(tanh(num))
-            FunctionalOperators.sqrt.func ->{
-                if (num<0){
+            FunctionalOperators.sqrt.func -> {
+                if (num < 0) {
                     throw ImaginaryException()
                 }
                 numStack.push(sqrt(num))

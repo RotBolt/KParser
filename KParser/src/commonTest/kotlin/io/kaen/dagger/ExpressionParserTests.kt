@@ -74,43 +74,50 @@ class ExpressionParserTests {
     }
 
     @Test
-    fun chainedDivision(){
+    fun chainedDivision() {
         val result = expressionParser.evaluate("20/10/2")
-        assertEquals(1.0,result)
+        assertEquals(1.0, result)
     }
 
     @Test
-    fun simpleSinh(){
+    fun simpleSinh() {
         val result = expressionParser.evaluate("sinh(PI)")
         val precised = roundToPrecision(sinh(PI))
-        assertEquals(precised,result)
+        assertEquals(precised, result)
     }
 
     @Test
-    fun simplePercent(){
+    fun simplePercent() {
         val result = expressionParser.evaluate("1-6%")
-        assertEquals(1-0.06,result)
+        assertEquals(1 - 0.06, result)
     }
 
     @Test
-    fun simpleUnaryFunction(){
+    fun simpleUnaryFunction() {
         val result = expressionParser.evaluate("-cos(PI)")
-        assertEquals(-cos(PI),result)
+        assertEquals(-cos(PI), result)
     }
 
     @Test
-    fun complexUnaryCase(){
+    fun complexUnaryCase() {
         val result = expressionParser.evaluate("2*-(-cos(PI))")
-        assertEquals(-2.0,result)
+        assertEquals(-2.0, result)
     }
 
     @Test
-    fun evalInDegrees(){
+    fun evalInDegrees() {
         expressionParser.isDegrees = true
         val result = expressionParser.evaluate("sin(90)")
-        assertEquals(1.0,result)
+        assertEquals(1.0, result)
         val result2 = expressionParser.evaluate("sin(30)")
-        assertEquals(0.5,result2)
+        assertEquals(0.5, result2)
+    }
+
+    @Test
+    fun simpleExpTest() {
+        expressionParser.isDegrees = true
+        val result = expressionParser.evaluate("exp(cos(90))")
+        assertEquals(1.0, result)
     }
 
 }

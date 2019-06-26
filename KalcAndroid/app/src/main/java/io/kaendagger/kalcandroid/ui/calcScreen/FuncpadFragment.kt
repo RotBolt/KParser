@@ -41,7 +41,6 @@ class FuncpadFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View) {
         with(onCalcBtnClickListener) {
             when (v.id) {
-                R.id.btnEq -> onCalcBtnClick("exp(")
                 R.id.btnPercent -> onCalcBtnClick("%")
                 R.id.btnFact -> onCalcBtnClick("!")
                 R.id.btnSqrt -> onCalcBtnClick("sqrt(")
@@ -59,6 +58,7 @@ class FuncpadFragment : Fragment(), View.OnClickListener {
                 R.id.btnLn -> onCalcBtnClick("ln(")
                 R.id.btnE -> onCalcBtnClick("e")
                 R.id.btnPI -> onCalcBtnClick("PI")
+                R.id.btnExp -> onCalcBtnClick("exp(")
                 R.id.btnEqf -> onCalcBtnClick("=")
             }
         }

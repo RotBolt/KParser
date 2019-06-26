@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.calcScreen.MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:elevation="0dp"
+        android:layout_width="match_parent"
+        android:theme="@style/ToolbarTheme"
+        android:layout_height="?attr/actionBarSize">
+    </androidx.appcompat.widget.Toolbar>
+
+    <HorizontalScrollView
+        android:layout_marginTop="@dimen/margin_top_space"
+        android:id="@+id/displayScrollView"
+        android:scrollbars="none"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:scrollbars="horizontal"
+            android:layout_gravity="end"
+            android:id="@+id/tvDisplay"
+            android:paddingStart="@dimen/extra_pad"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:maxLines="1"
+            android:gravity="bottom"
+            android:scrollHorizontally="true"
+            android:textColor="@android:color/white" />
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:scrollbars="none"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_gravity="end"
+            android:id="@+id/tvResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="98"
+            android:textSize="40sp"
+            android:textColor="@android:color/white" />
+    </HorizontalScrollView>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/keypadPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </androidx.viewpager.widget.ViewPager>
+</LinearLayout>
