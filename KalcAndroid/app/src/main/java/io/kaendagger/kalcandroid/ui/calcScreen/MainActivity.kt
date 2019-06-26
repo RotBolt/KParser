@@ -21,7 +21,7 @@ import java.util.Stack
 import kotlin.coroutines.CoroutineContext
 
 
-class MainActivity : AppCompatActivity(),CoroutineScope {
+class MainActivity : AppCompatActivity(), CoroutineScope {
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main
@@ -143,6 +143,8 @@ class MainActivity : AppCompatActivity(),CoroutineScope {
             if (toShow) "Domain Error" else ""
         } catch (ie: ImaginaryException) {
             if (toShow) "Complex Operation not supported" else ""
+        } catch (bnf: BaseNotFoundException) {
+            if (toShow) "Invalid log statement" else ""
         } catch (e: Exception) {
             if (toShow) {
                 if (e.message?.contains("Unsupported Operation") == true) {
@@ -164,7 +166,7 @@ class MainActivity : AppCompatActivity(),CoroutineScope {
         }
     }
 
-    private fun TextView.animClear(){
+    private fun TextView.animClear() {
         launch {
             this@animClear.animate().alpha(0f).duration = 300
             delay(300)

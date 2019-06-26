@@ -391,6 +391,7 @@ class ExpressionParser {
                 throw DomainException()
             }
         }
+        throw DomainException()
     }
 
 
@@ -406,6 +407,7 @@ class ExpressionParser {
             val result = number / 100.0
             numStack.push(result)
         }
+        throw BadSyntaxException()
     }
 
     private fun Double.isInt() = this == floor(this)
