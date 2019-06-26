@@ -210,7 +210,7 @@ class ExpressionParser {
                     opStack.push(func.func)
                     return funLength
                 } else {
-                    val logRegex = Regex("log[123456789.]+\\(")
+                    val logRegex = Regex("log[0123456789.]+\\(")
                     val found = logRegex.find(expression.substring(index, expression.length))
                     try {
                         val logxString = found!!.value

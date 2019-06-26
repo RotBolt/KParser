@@ -20,10 +20,10 @@ enum class FunctionalOperators(val func: String) {
     sinh("sinh("),
     cosh("cosh("),
     tanh("tanh("),
-    logx("log"),
     log2("log2("),
     log10("log10("),
     ln("ln("),
+    logx("log"),
     sqrt("sqrt("),
     exp("exp(")
 
