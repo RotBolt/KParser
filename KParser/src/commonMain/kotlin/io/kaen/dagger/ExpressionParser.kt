@@ -214,6 +214,7 @@ class ExpressionParser {
                     val found = logRegex.find(expression.substring(index, expression.length))
                     try {
                         val logxString = found!!.value
+                        opStack.push(logxString)
                         return logxString.length
                     }catch (e: NullPointerException){
                         throw BaseNotFoundException()
