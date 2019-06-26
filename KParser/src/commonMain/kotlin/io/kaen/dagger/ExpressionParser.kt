@@ -374,6 +374,7 @@ class ExpressionParser {
             if (number.isInt()) {
                 val result = factorial(number.toInt())
                 numStack.push(result.toDouble())
+                return
             } else {
                 clearStacks()
                 throw DomainException()
@@ -386,6 +387,7 @@ class ExpressionParser {
                     result = 0 - result
                 }
                 numStack.push(result.toDouble())
+                return
             } else {
                 clearStacks()
                 throw DomainException()
@@ -402,11 +404,13 @@ class ExpressionParser {
             numString.clear()
             val result = number / 100
             numStack.push(result)
+            return
 
         } else if (!numStack.isEmpty()) {
             val number = numStack.pop()
             val result = number / 100.0
             numStack.push(result)
+            return
         }
         clearStacks()
         throw BadSyntaxException()
