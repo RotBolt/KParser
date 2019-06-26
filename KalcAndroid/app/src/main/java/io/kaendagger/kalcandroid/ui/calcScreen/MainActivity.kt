@@ -145,7 +145,7 @@ class MainActivity : AppCompatActivity(),CoroutineScope {
             if (toShow) "Complex Operation not supported" else ""
         } catch (e: Exception) {
             if (toShow) {
-                if (e.message!!.contains("Unsupported Operation")) {
+                if (e.message?.contains("Unsupported Operation") == true) {
                     "Unsupported Operation"
                 } else {
                     throw e

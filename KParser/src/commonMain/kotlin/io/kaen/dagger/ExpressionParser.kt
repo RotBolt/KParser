@@ -212,13 +212,16 @@ class ExpressionParser {
                 } else {
                     val logRegex = Regex("log[123456789.]+\\(")
                     val found = logRegex.find(expression.substring(index, expression.length))
-                    val logxString = found!!.value
-                    opStack.push(logxString)
-                    return logxString.length
+                    try {
+                        val logxString = found!!.value
+                        opStack.push(logxString)
+                        return logxString.length
+                    }catch (e: NullPointerException){
+                        throw BaseNotFoundException()
+                    }
                 }
             }
         }
-
         clearStacks()
         throw Exception("Unsupported Operation at ${expression.substring(index, expression.length)}")
     }
