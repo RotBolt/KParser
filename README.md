@@ -95,6 +95,8 @@ target_link_libraries(${PROJECT_NAME} kparser)
     
 ```
 
+#### Android App sample : [Kalc-Android](https://github.com/KaenDagger/Kalc-Android)
+
 **Work Left**
 - Add usage with JS
 - Add support Windows and iOS
