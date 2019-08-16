@@ -96,6 +96,7 @@ target_link_libraries(${PROJECT_NAME} kparser)
 ```
 
 #### Android App sample : [Kalc-Android](https://github.com/KaenDagger/Kalc-Android)
+#### Native App Sample : [Kalc-Native](https://github.com/KaenDagger/Kalc_Native)
 
 **Work Left**
 - Add usage with JS
